@@ -618,6 +618,59 @@ body { line-height: 1.38 !important; }
 .walkers { width: 100%; height: 58px; margin-top: auto; display: block; }
 .t-active .dims { margin-top: 8px !important; }
 
+
+/* Mosaic v5: safety tile on the right, compact beyond-transport tile below it */
+.mosaic { grid-template-areas: "a b b g" "a c d g" "e c d f" !important; }
+.t-safety { grid-area: g; background: #0e4350; }
+.hot { width: 100%; flex: 1; min-height: 140px; margin-top: 6px; }
+.t-beyond { grid-area: f; }
+.b-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.b-chips i { font-style: normal; font-family: var(--label); font-size: 11.5px; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.14); color: #fff; }
+.tile { overflow: hidden; isolation: isolate; }
+@media (max-width: 960px) { .mosaic { grid-template-areas: "a b" "a c" "e d" "g f" !important; } }
+@media (max-width: 560px) { .mosaic { grid-template-areas: "a" "b" "c" "d" "e" "g" "f" !important; } }
+
+
+/* Mosaic v6: safety top-right only (quiet purple), beyond as a tall single column */
+.mosaic { grid-template-areas: "a b b g" "a c d f" "e c d f" !important; }
+.t-safety { background: #3d3460 !important; }
+.t-safety .hot { min-height: 0 !important; flex: 1; margin-top: 2px; }
+.t-safety .t-q { font-size: 19px; }
+@media (max-width: 960px) { .mosaic { grid-template-areas: "a b" "a c" "e d" "g f" !important; } }
+@media (max-width: 560px) { .mosaic { grid-template-areas: "a" "b" "c" "d" "e" "g" "f" !important; } }
+
+
+/* Mosaic v7: right column = road safety on top (fills), beyond transport below (only as tall as its list) */
+.mosaic { grid-template-areas: "a b b g" "a c d g" "e c d g" !important; }
+.m-right { grid-area: g; display: flex; flex-direction: column; gap: 16px; min-height: 0; }
+.m-right .t-safety { flex: 1 1 auto; min-height: 220px; }
+.m-right .t-beyond { flex: 0 0 auto; }
+.t-safety .hot { min-height: 0 !important; height: 170px !important; flex: none !important; width: 100%; margin-top: auto !important; border-radius: 6px; background: rgba(0,0,0,.18); }
+@media (max-width: 960px) { .mosaic { grid-template-areas: "a b" "a c" "e d" "g g" !important; } .m-right { flex-direction: row; } .m-right > * { flex: 1 1 0 !important; } }
+@media (max-width: 560px) { .mosaic { grid-template-areas: "a" "b" "c" "d" "e" "g" !important; } .m-right { flex-direction: column; } }
+
+
+/* beyond tile, earlier look */
+/* safety tile */
+.t-safety .t-f { opacity: .7; }
+
+
+/* beyond: original framed look */
+.m-right .t-beyond-in { margin: 16px; }
+/* safety: smooth purple */
+.t-safety { background: linear-gradient(160deg, #463b6e 0%, #382f5c 55%, #2f2750 100%) !important; }
+.t-safety .hot { background: transparent !important; border-radius: 0; }
+
+
+/* Beyond tile as in the earlier version */
+.m-right .t-beyond-in { margin: 14px !important; padding: 20px 20px 16px !important; background: rgba(24,14,38,.74) !important; border-radius: 8px; gap: 6px !important; }
+.m-right .t-beyond .t-q { font-size: 22px !important; line-height: 1.22; }
+.b-old { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-family: var(--display); font-size: 16.5px; line-height: 1.3; }
+.b-old li::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ffd166; margin-right: 10px; vertical-align: 2px; }
+.b-foot { margin-top: 12px !important; }
+/* Road safety tile */
+.t-safety { background: linear-gradient(160deg, #463a6e 0%, #2f2850 100%) !important; }
+
 footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
@@ -757,15 +810,22 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <canvas class="walkers" id="walkers" aria-hidden="true"></canvas>
         <div class="dims"><i>Comfort</i><i>Urban services</i><i>Safety</i><i>Parking</i></div>
       </a>
+      <div class="m-right">
+      <a class="tile t-safety" href="#congestion">
+        <span class="t-k">Road safety &middot; transport and health</span>
+        <span class="t-q">Where and why do crashes happen on Dhaka's roads?</span>
+        <canvas class="hot" id="hot" aria-hidden="true"></canvas>
+        <span class="t-f">In preparation</span>
+      </a>
       <a class="tile t-beyond" href="#regional">
         <canvas class="hexes" id="hexes" aria-hidden="true"></canvas>
         <div class="t-beyond-in">
           <span class="t-k">Beyond transport</span>
           <span class="t-q">Who gets services, growth and a decent home?</span>
           <ul><li>Human development across 64 districts</li><li>Public facility equity</li><li>Functional regions</li><li>Regional growth</li><li>Rural livelihoods</li><li>Slum upgrading</li><li>Informal markets</li><li>Agro-industrial land</li></ul>
-          <span class="t-f t-f-top">8 papers &middot; 2 published</span>
         </div>
       </a>
+      </div>
     </div>
   </div>
 </section>
@@ -843,11 +903,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       </div>
     </article>
 
-    <article class="project" id="congestion" style="--n:3">
+    <article class="project" id="congestion" style="--n:4">
       <header class="p-head">
         <span class="p-tag">Project 2 &middot; 2025 &ndash; present</span>
-        <h3>Congestion, land use and traffic operations</h3>
-        <p class="p-sum">Why Dhaka's roads jam, from the whole network down to one intersection.</p>
+        <h3>Congestion, road safety and traffic operations</h3>
+        <p class="p-sum">Why Dhaka's roads jam and where they turn dangerous, from the whole network down to one intersection.</p>
       </header>
       <div class="papers">
         <div class="paper">
@@ -877,8 +937,15 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
             <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Peak hour factor above 0.90 at four of five intersections.</li><li>School-side roads jam because of missing off-street parking and encroached footpaths; arterials jam from unmanaged through traffic.</li><li>Proposes a managed school transport service and other short- and long-term measures.</li></ul></dd>
           </dl>
         </div>
+        <div class="paper">
+          <span class="st ong">In preparation</span>
+          <h4>Road crashes and safety in Dhaka (working title)</h4>
+          <dl>
+            <dt>Research question</dt><dd>Where and why do road crashes happen in Dhaka?</dd>
+          </dl>
+        </div>
       </div>
-      <p class="also">In preparation: <em>Jams start with demand but end alike: Onset and duration of congestion in Dhaka</em>, and a paper on road crashes and safety in Dhaka.</p>
+      <p class="also">In preparation: <em>Jams start with demand but end alike: Onset and duration of congestion in Dhaka</em>.</p>
     </article>
 
     <article class="project" id="ride-hailing" style="--n:3">
@@ -1144,14 +1211,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <div class="yr"></div>
           <div>
             <p class="t">Thirteen hours of slowdown: When, where and around what land uses Dhaka's roads congest</p>
-            <p class="meta">First author &middot; <em>Journal of Transport Geography</em> <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+            <p class="meta">First author &middot; <em>Journal of Transport Geography</em> <a class="proj-link" href="#congestion">Project 2: Congestion and safety &rarr;</a></p>
           </div>
         </article>
         <article class="pub">
           <div class="yr"></div>
           <div>
             <p class="t">Case study: Performance of a heterogeneous urban T-intersection under different scenarios</p>
-            <p class="meta">First author &middot; <em>PLOS ONE</em> <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+            <p class="meta">First author &middot; <em>PLOS ONE</em> <a class="proj-link" href="#congestion">Project 2: Congestion and safety &rarr;</a></p>
           </div>
         </article>
         <article class="pub">
@@ -1190,7 +1257,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <div class="yr"></div>
           <div>
             <p class="t">Traffic conditions around an urban school under intensifying surrounding land use: A case study of Dhaka, Bangladesh</p>
-            <p class="meta">First author <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+            <p class="meta">First author <a class="proj-link" href="#congestion">Project 2: Congestion and safety &rarr;</a></p>
           </div>
         </article>
       </div>
@@ -1201,14 +1268,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <div class="yr"></div>
           <div>
             <p class="t">Jams start with demand but end alike: Onset and duration of congestion in Dhaka</p>
-            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion and safety &rarr;</a></p>
           </div>
         </article>
         <article class="pub">
           <div class="yr"></div>
           <div>
             <p class="t">Road crashes and safety in Dhaka (working title)</p>
-            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion and safety &rarr;</a></p>
           </div>
         </article>
         <article class="pub">
@@ -1534,6 +1601,41 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     people.forEach(function (o) { var px = o.p * W, ph = t * (o.kind === "walk" ? .18 : .12);
       if (o.kind === "walk") walker(px, base, o.c, ph + o.p * 10, o.dir); else if (o.kind === "cycle") cyclist(px, base, o.c, ph, o.dir); else rickshaw(px, base, o.c, ph, o.dir);
       if (!reduce) { o.p += o.v * o.dir; if (o.p > 1.08) o.p = -.08; if (o.p < -.08) o.p = 1.08; } });
+    t++; if (!reduce) requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+<script>
+(function () {
+  var c = document.getElementById("hot"); if (!c) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var x = c.getContext("2d"), W = 0, H = 0;
+  var fit = function () { var d = window.devicePixelRatio || 1, w = c.clientWidth || 1, h = c.clientHeight || 1; if (w === W && h === H) return; W = w; H = h; c.width = w * d; c.height = h * d; x.setTransform(d, 0, 0, d, 0, 0); };
+  fit(); if (window.ResizeObserver) new ResizeObserver(function () { requestAnimationFrame(fit); }).observe(c);
+  var t = 0;
+  var bz = function (r, u) { var v = 1 - u; return [v*v*v*r[0][0] + 3*v*v*u*r[1][0] + 3*v*u*u*r[2][0] + u*u*u*r[3][0], v*v*v*r[0][1] + 3*v*v*u*r[1][1] + 3*v*u*u*r[2][1] + u*u*u*r[3][1]]; };
+  var crashes = [[0, .22], [0, .34], [0, .62], [1, .3], [1, .46], [1, .52], [2, .4], [2, .7], [3, .55], [1, .72], [0, .8], [2, .18]];
+  var hubs = [[1, .48, 1.2], [0, .3, .9], [2, .68, 1], [3, .55, .8]];
+  function road(r, w, col) { x.beginPath(); x.moveTo(r[0][0], r[0][1]); x.bezierCurveTo(r[1][0], r[1][1], r[2][0], r[2][1], r[3][0], r[3][1]); x.strokeStyle = col; x.lineWidth = w; x.stroke(); }
+  function cross(px, py, s, a) { x.strokeStyle = "rgba(255,255,255," + a + ")"; x.lineWidth = 1.6; x.beginPath(); x.moveTo(px - s, py - s); x.lineTo(px + s, py + s); x.moveTo(px + s, py - s); x.lineTo(px - s, py + s); x.stroke(); }
+  function draw() {
+    var roads = [[[-10, H * .32], [W * .35, H * .1], [W * .65, H * .6], [W + 10, H * .4]],
+                 [[W * .12, H + 10], [W * .3, H * .55], [W * .62, H * .45], [W * .85, -10]],
+                 [[-10, H * .82], [W * .35, H * .7], [W * .7, H * .98], [W + 10, H * .78]],
+                 [[W * .58, H + 10], [W * .64, H * .72], [W * .92, H * .6], [W + 10, H * .22]]];
+    x.clearRect(0, 0, W, H); x.lineCap = "round";
+    roads.forEach(function (r) { road(r, 10, "rgba(255,255,255,.08)"); road(r, 6, "rgba(20,14,40,.55)"); });
+    x.setLineDash([3, 5]); roads.forEach(function (r) { road(r, 1, "rgba(255,255,255,.28)"); }); x.setLineDash([]);
+    x.globalCompositeOperation = "lighter";
+    hubs.forEach(function (h, i) { var p = bz(roads[h[0]], h[1]), br = .6 + .4 * Math.sin(t * .02 + i * 1.7), R = (34 + 8 * br) * h[2];
+      var g = x.createRadialGradient(p[0], p[1], 0, p[0], p[1], R);
+      g.addColorStop(0, "rgba(255,80,70," + (.55 * br).toFixed(3) + ")"); g.addColorStop(.45, "rgba(255,150,60," + (.22 * br).toFixed(3) + ")"); g.addColorStop(1, "rgba(255,200,80,0)");
+      x.fillStyle = g; x.beginPath(); x.arc(p[0], p[1], R, 0, 6.283); x.fill(); });
+    x.globalCompositeOperation = "source-over";
+    crashes.forEach(function (c, i) { var p = bz(roads[c[0]], c[1]), a = (.55 + .45 * Math.sin(t * .04 + i)).toFixed(3); cross(p[0], p[1], 2.6, a); });
+    var k = Math.floor(t / 100) % hubs.length, hp = bz(roads[hubs[k][0]], hubs[k][1]), ph = (t % 100) / 100;
+    x.strokeStyle = "rgba(255,140,120," + (1 - ph).toFixed(3) + ")"; x.lineWidth = 2; x.beginPath(); x.arc(hp[0], hp[1], 8 + ph * 30, 0, 6.283); x.stroke();
     t++; if (!reduce) requestAnimationFrame(draw);
   }
   draw();

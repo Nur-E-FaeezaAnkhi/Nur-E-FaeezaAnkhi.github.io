@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nur-E-Faeeza Ankhi</title>
+<meta name="description" content="Nur-E-Faeeza Ankhi, Lecturer in Urban and Regional Planning at BUET. Research on travel behaviour, extreme weather, congestion and data-driven transportation planning in Dhaka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Tinos:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: one reading column with a left "route line" running beside the sections, like a transit map. */
+  --paper: #ffffff;
+  --ink: #17201f;
+  --muted: #5b6766;
+  --rule: #dde4e3;
+  --accent: #0b6b68;
+  --accent-soft: #e5f1f0;
+  --signal: #d9a21b;
+  --card: #f7faf9;
+  --display: "Newsreader", "Times New Roman", Times, serif;
+  --body: "Tinos", "Times New Roman", Times, serif;
+  --label: "IBM Plex Sans Condensed", "Arial Narrow", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111716;
+    --ink: #e6ecea;
+    --muted: #9aa8a6;
+    --rule: #2a3533;
+    --accent: #5cc3bd;
+    --accent-soft: #17302e;
+    --signal: #e6b740;
+    --card: #172120;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111716;
+  --ink: #e6ecea;
+  --muted: #9aa8a6;
+  --rule: #2a3533;
+  --accent: #5cc3bd;
+  --accent-soft: #17302e;
+  --signal: #e6b740;
+  --card: #172120;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.6;
+}
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; }
+
+/* Top bar */
+.bar {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+.bar-inner {
+  max-width: 1440px; margin: 0 auto; padding: 12px clamp(16px, 4vw, 48px);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.brand { font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--ink); text-decoration: none; }
+.nav { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--label); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--accent); }
+
+.wrap { max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
+
+/* Hero band: one fixed dark world in both themes */
+.hero-band {
+  --hb-bg: #0a2726; --hb-ink: #f1f6f5; --hb-muted: #a9c4c1; --hb-line: #3fb7ae; --hb-amber: #f2b632;
+  position: relative; overflow: hidden;
+  background: radial-gradient(120% 90% at 85% 10%, #13403d 0%, var(--hb-bg) 60%);
+  color: var(--hb-ink);
+}
+.hero-band::after { display: none; content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,39,38,.72) 0%, rgba(10,39,38,.35) 55%, rgba(10,39,38,0) 80%); pointer-events: none; }
+.hero-band .wrap { position: relative; z-index: 1; }
+.hero { display: grid; grid-template-columns: 1fr 420px; gap: 48px; padding: 72px 0 32px; align-items: center; }
+.eyebrow { font-family: var(--label); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--hb-amber); margin: 0 0 14px; }
+.hero h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.0; letter-spacing: -0.015em; font-weight: 500; }
+.hero h1 .hl { font-style: italic; color: var(--hb-line); }
+.hero .role { font-size: 20px; color: var(--hb-muted); margin: 18px 0 22px; max-width: 34em; }
+.lede { max-width: 38em; margin: 0 0 28px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  font-family: var(--label); font-size: 14px; letter-spacing: .04em;
+  padding: 8px 16px; border: 1px solid var(--rule); border-radius: 999px;
+  color: var(--ink); text-decoration: none; background: var(--paper);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.hero-band .chip { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.22); color: var(--hb-ink); }
+.hero-band .chip:hover { border-color: var(--hb-amber); color: var(--hb-amber); }
+.hero-band .chip.primary { background: var(--hb-amber); border-color: var(--hb-amber); color: #1b1606; font-weight: 600; }
+.hero-band .chip.primary:hover { color: #1b1606; filter: brightness(1.06); }
+
+.who { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.who .eyebrow { margin: 0; }
+.portrait {
+  width: 56px; height: 56px; flex: none; border-radius: 50%;
+  background: linear-gradient(145deg, #1c5a55, #0d3331);
+  display: grid; place-items: center;
+  font-family: var(--display); font-size: 22px; font-style: italic; color: var(--hb-ink);
+  box-shadow: 0 0 0 3px rgba(242,182,50,.55);
+}
+.map-wrap { margin: 0; }
+.transit { width: 100%; height: auto; display: block; overflow: visible; }
+.tm-hit { fill: none; stroke: transparent; stroke-width: 26; }
+.tm-track { fill: none; stroke: var(--c); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; transition: opacity .2s, stroke-width .2s; }
+.tm-stop { fill: var(--hb-bg); stroke: #f1f6f5; stroke-width: 2.5; }
+.tm-term { fill: var(--c); stroke: #f1f6f5; stroke-width: 3; }
+.tm-num { font-family: var(--label); font-size: 13px; font-weight: 600; fill: #0a2726; text-anchor: middle; pointer-events: none; }
+.tm-label { font-family: var(--label); font-size: 15px; font-weight: 600; letter-spacing: .03em; fill: #f1f6f5; }
+.tm-hub rect { fill: #f1f6f5; stroke: #0a2726; stroke-width: 4; }
+.tm-hubtxt { font-family: var(--label); font-size: 12px; font-weight: 600; letter-spacing: .2em; fill: var(--hb-amber); }
+.tm-line { cursor: pointer; outline: none; }
+.transit:hover .tm-line .tm-track, .transit:focus-within .tm-line .tm-track { opacity: .28; }
+.transit .tm-line:hover .tm-track, .transit .tm-line:focus .tm-track { opacity: 1; stroke-width: 11; }
+.tm-line:focus-visible .tm-label, .tm-line:hover .tm-label { fill: var(--c); }
+.map-wrap figcaption { font-family: var(--label); font-size: 13px; letter-spacing: .03em; color: var(--hb-muted); margin-top: 6px; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .tm-track { transition: none; } }
+
+/* Route line */
+.route { padding: 28px 0 40px; border-top: 1px solid rgba(255,255,255,.12); }
+.route-title { font-family: var(--label); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--hb-muted); margin: 0 0 18px; }
+.stops { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
+.stops::before { content: ""; position: absolute; left: 7px; right: 12%; top: 7px; height: 4px; background: var(--hb-line); border-radius: 2px; }
+.stops::after { content: ""; position: absolute; right: 0; left: 88%; top: 7px; height: 4px; background: repeating-linear-gradient(90deg, var(--hb-line) 0 6px, transparent 6px 12px); }
+.stop { position: relative; padding-top: 30px; padding-right: 12px; }
+.stop::before { content: ""; position: absolute; top: 0; left: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--hb-bg); border: 4px solid var(--hb-line); }
+.stop.now::before { background: var(--hb-amber); box-shadow: 0 0 0 6px rgba(242,182,50,.25); }
+.stop .yr { font-family: var(--label); font-size: 15px; font-weight: 600; color: var(--hb-amber); font-variant-numeric: tabular-nums; }
+.stop .what { display: block; font-size: 16px; line-height: 1.35; color: var(--hb-ink); }
+
+
+/* Research lens (hero instrument) */
+.lens { margin: 0; }
+#lens-svg { width: 100%; height: auto; display: block; overflow: visible; }
+#lens-svg .guide { fill: none; stroke: rgba(241,246,245,.07); stroke-width: 1; }
+#lens-svg .core { fill: rgba(134,227,217,.06); stroke: rgba(134,227,217,.18); stroke-dasharray: 2 4; }
+#ring path { fill-opacity: .88; transition: d .9s cubic-bezier(.2,.7,.2,1), opacity .25s; cursor: crosshair; }
+#ticks circle { fill: rgba(241,246,245,.25); }
+#hours text { font-family: var(--label); font-size: 12px; letter-spacing: .04em; fill: var(--hb-muted); }
+#peak text { font-family: var(--label); font-size: 12px; font-weight: 600; fill: #ef8a6e; transition: opacity .6s; }
+#peak line { stroke: #ef8a6e; stroke-width: 1; transition: opacity .6s; }
+#hand { stroke: var(--hb-amber); stroke-width: 1.2; stroke-linecap: round; opacity: .55; }
+#dots circle { transition: transform 1.4s cubic-bezier(.3,.7,.2,1), fill .9s ease, r .5s; cursor: pointer; }
+.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; font-family: var(--label); font-size: 12.5px; letter-spacing: .03em; color: var(--hb-muted); margin: 2px 0 10px; }
+.legend .k { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+.legend .walk { background: #86e3d9; box-shadow: 0 0 0 3px rgba(134,227,217,.2); }
+.legend .rick { background: #f2b632; }
+.legend .oth { background: rgba(169,196,193,.45); }
+.legend .ring { width: 18px; height: 6px; border-radius: 3px; background: linear-gradient(90deg, #3fb7ae, #f2b632, #ef6f5e); }
+.legend .rk { transition: opacity .4s; }
+.lens-ctrl { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.seg { display: inline-flex; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 3px; gap: 2px; flex-wrap: wrap; justify-content: center; background: rgba(255,255,255,.03); }
+.seg button { font-family: var(--label); font-size: 14px; letter-spacing: .03em; color: var(--hb-ink); background: transparent; border: 0; border-radius: 999px; padding: 6px 14px; cursor: pointer; transition: background .2s, color .2s; }
+.seg button:hover { color: var(--hb-amber); }
+.seg button[aria-pressed="true"] { background: var(--hb-amber); color: #1b1606; }
+.seg.small button { font-size: 13px; padding: 4px 12px; }
+.seg.small #eid[aria-pressed="true"] { background: var(--hb-line); color: #062221; }
+.card-find { display: flex; gap: 16px; align-items: center; margin: 16px auto 0; max-width: 400px; padding: 14px 18px; border-radius: 10px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
+.cf-num { font-family: var(--display); font-size: 46px; line-height: 1; color: #86e3d9; font-variant-numeric: tabular-nums; min-width: 2.4em; text-align: center; }
+.cf-txt p { margin: 0; font-size: 16px; line-height: 1.4; color: var(--hb-ink); }
+.cf-txt .lens-note { margin-top: 6px; font-family: var(--label); font-size: 12.5px; letter-spacing: .02em; color: var(--hb-muted); }
+.map-panel { background: #0a2726; border-radius: 10px; padding: 24px 28px 18px; margin: 0 0 32px;
+  --hb-bg: #0a2726; --hb-ink: #f1f6f5; --hb-amber: #f2b632; }
+.map-panel .transit { max-width: 560px; margin: 0 auto; }
+
+
+/* Home: single-column identity, lens below */
+.hero { display: block !important; padding: 80px 0 40px !important; text-align: center; }
+.ident { max-width: 900px; margin: 0 auto; }
+.ident .eyebrow { margin-bottom: 18px; }
+.ident .role, .ident .lede { margin-left: auto; margin-right: auto; }
+.ident .links { justify-content: center; }
+.hero h1 { font-size: clamp(48px, 8vw, 96px) !important; line-height: 1.02; }
+.callme { font-family: var(--label); font-size: 15px; letter-spacing: .06em; color: var(--hb-muted); margin: 12px 0 0; }
+.callme strong { color: var(--hb-line); font-weight: 600; }
+.lens-row { border-top: 1px solid rgba(255,255,255,.12); padding: 40px 0 48px; }
+.lens-head { text-align: center; max-width: 640px; margin: 0 auto 8px; }
+.lens-head .eyebrow { margin-bottom: 8px; }
+.lens-intro { margin: 0; color: var(--hb-muted); font-size: 17px; }
+.lens { max-width: 520px; margin: 0 auto !important; }
+
+/* Stats strip */
+.stats-wrap { background: var(--accent-soft); border-bottom: 1px solid var(--rule); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 0; padding: 32px 0; }
+.stats div { border-left: 3px solid var(--signal); padding-left: 16px; }
+.stats dt { font-family: var(--display); font-size: 44px; line-height: 1; color: var(--accent); font-weight: 500; font-variant-numeric: tabular-nums; }
+.stats dd { margin: 8px 0 0; font-size: 15px; line-height: 1.4; color: var(--muted); }
+
+/* Sections */
+section.block { display: grid; grid-template-columns: 250px 1fr; gap: 40px; padding: 48px 0; border-top: 1px solid var(--rule); }
+.block > h2 { font-size: 32px; line-height: 1.2; position: relative; padding-left: 18px; }
+.block > h2::before { content: ""; position: absolute; left: 0; top: .32em; width: 4px; height: .9em; background: var(--accent); border-radius: 2px; }
+.block p { margin: 0 0 16px; max-width: 40em; }
+
+.interests { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
+.interests li { font-family: var(--label); font-size: 14px; letter-spacing: .03em; padding: 6px 12px; border-radius: 4px; background: var(--accent-soft); color: var(--ink); }
+
+/* Publications */
+.pubs-group + .pubs-group { margin-top: 36px; }
+.pubs-group h3 { font-family: var(--label); font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.pub { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.pub:last-child { border-bottom: 0; }
+.pub .yr { font-family: var(--label); font-size: 15px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.pub .t { font-family: var(--display); font-size: 20px; line-height: 1.3; margin: 0 0 4px; }
+.pub .meta { font-size: 16px; color: var(--muted); margin: 0; }
+.pub .meta em { color: var(--ink); }
+.pub .note { font-size: 16px; margin: 8px 0 0; max-width: 42em; }
+.tag { display: inline-block; font-family: var(--label); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-left: 6px; vertical-align: 2px; }
+.tag.q1 { background: var(--signal); color: #1b1606; font-weight: 600; }
+.tag.status { border: 1px solid var(--rule); color: var(--muted); }
+.simple { list-style: none; margin: 0; padding: 0; }
+.simple li { padding: 10px 0; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.simple li:last-child { border-bottom: 0; }
+.simple .ttl { font-family: var(--display); font-size: 18px; flex: 1 1 28em; }
+.simple .where { font-size: 15px; color: var(--muted); font-style: italic; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--rule); border-top: 4px solid var(--accent); border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 6px; transition: transform .2s ease, box-shadow .2s ease; }
+.card:nth-child(3n+2) { border-top-color: var(--signal); }
+.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(10,39,38,.12); }
+@media (prefers-reduced-motion: reduce) { .card, .chip { transition: none; } .card:hover, .chip:hover { transform: none; } }
+.card .when { font-family: var(--label); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.card h3 { font-size: 20px; line-height: 1.3; }
+.card p { font-size: 16px; margin: 0; color: var(--muted); }
+
+/* Timeline lists */
+.tl { list-style: none; margin: 0; padding: 0; }
+.tl li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.tl li:last-child { border-bottom: 0; }
+.tl .d { font-family: var(--label); font-size: 14px; color: var(--accent); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.tl .x strong { font-weight: 700; }
+.tl .x span { display: block; color: var(--muted); font-size: 16px; }
+
+.courses { columns: 2 240px; column-gap: 32px; margin: 8px 0 0; padding: 0; list-style: none; }
+.courses li { break-inside: avoid; padding: 4px 0; font-size: 17px; }
+.courses .code { font-family: var(--label); font-size: 14px; color: var(--accent); margin-right: 6px; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.skills h3 { font-family: var(--label); font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.skills p { font-size: 17px; margin: 0; }
+
+
+/* Research projects */
+.projects { padding: 56px 0 24px; border-top: 1px solid var(--rule); }
+.projects-head { display: grid; grid-template-columns: 200px 1fr; gap: 40px; margin-bottom: 28px; }
+.projects-head h2 { font-size: 32px; line-height: 1.2; position: relative; padding-left: 18px; }
+.projects-head h2::before { content: ""; position: absolute; left: 0; top: .32em; width: 4px; height: .9em; background: var(--accent); border-radius: 2px; }
+.projects-head p { margin: 0; max-width: 40em; color: var(--muted); }
+.project { margin: 0 0 40px; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: var(--paper); }
+.p-head { padding: 24px 28px 20px; background: linear-gradient(100deg, var(--accent-soft), transparent 75%); border-bottom: 1px solid var(--rule); border-left: 5px solid var(--accent); }
+.project:nth-of-type(even) .p-head { border-left-color: var(--signal); }
+.p-tag { font-family: var(--label); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.p-head h3 { font-size: 28px; line-height: 1.2; margin: 4px 0 8px; }
+.p-sum { margin: 0; max-width: 46em; color: var(--muted); font-size: 17px; }
+.papers { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); background: var(--paper); }
+.paper { background: var(--paper); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin: 0 -1px -1px 0; padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; }
+.st { align-self: flex-start; display: inline-block; width: fit-content; max-width: 100%; line-height: 1.45; font-family: var(--label); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; }
+.st.pub { background: var(--signal); color: #1b1606; font-weight: 600; }
+.st.rev { border: 1px solid var(--rule); color: var(--muted); }
+.st.conf { background: var(--accent-soft); color: var(--accent); }
+.st.ong { border: 1px dashed var(--accent); color: var(--accent); }
+.st.pol { background: var(--ink); color: var(--paper); }
+.paper h4 { font-family: var(--display); font-weight: 500; font-size: 19px; line-height: 1.3; margin: 2px 0 4px; text-wrap: balance; }
+.paper h4 a { color: var(--ink); text-decoration-color: var(--accent); }
+.paper dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 2px; }
+.paper dt { font-family: var(--label); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+.paper dd { margin: 0; font-size: 16px; line-height: 1.5; }
+.paper dt.kf { color: var(--accent); }
+.paper dd.kf { background: var(--accent-soft); border-radius: 6px; padding: 10px 12px 10px 4px; }
+.paper dd.kf ul { margin: 0; padding-left: 22px; }
+.paper dd.kf li { margin: 2px 0; }
+.paper dd.kf li::marker { color: var(--signal); }
+.also { margin: 0; padding: 14px 28px; font-size: 16px; color: var(--muted); border-top: 1px solid var(--rule); background: var(--card); }
+@media (max-width: 800px) { .projects-head { grid-template-columns: 1fr; gap: 12px; } .p-head, .paper { padding-left: 18px; padding-right: 18px; } }
+
+
+/* Pages */
+[data-view].off { display: none !important; }
+.nav a.on { color: var(--accent); }
+.nav a.on::after { content: ""; display: block; height: 2px; background: var(--signal); border-radius: 1px; margin-top: 3px; }
+.page-band { background: radial-gradient(120% 140% at 85% 0%, #13403d 0%, #0a2726 60%); color: #f1f6f5; }
+.page-band .wrap { padding-top: 48px; padding-bottom: 40px; }
+.pb-eyebrow { font-family: var(--label); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #f2b632; margin: 0 0 10px; }
+.page-band h1 { font-size: clamp(36px, 5vw, 54px); line-height: 1.05; }
+.page-band #page-sub { margin: 12px 0 0; max-width: 40em; color: #a9c4c1; font-size: 18px; }
+.page-band[hidden] { display: none; }
+.explore { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; padding: 48px 0; border-top: 1px solid var(--rule); }
+.ex-card { display: flex; flex-direction: column; gap: 6px; padding: 22px; border: 1px solid var(--rule); border-top: 4px solid var(--accent); border-radius: 8px; background: var(--card); color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.ex-card:nth-child(even) { border-top-color: var(--signal); }
+.ex-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(10,39,38,.12); }
+.ex-k { font-family: var(--label); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.ex-t { font-family: var(--display); font-size: 22px; line-height: 1.2; }
+.ex-d { font-size: 16px; color: var(--muted); flex: 1; }
+.ex-go { font-family: var(--label); font-size: 14px; color: var(--accent); margin-top: 6px; }
+@media (prefers-reduced-motion: reduce) { .ex-card { transition: none; } .ex-card:hover { transform: none; } }
+main section.block:first-of-type, .projects { border-top: 0; }
+
+
+/* Home v3 */
+.hero h1.name { color: #ffffff; font-weight: 700; letter-spacing: -0.02em; }
+.hero-band .wrap > .hero { padding-bottom: 64px !important; }
+.mosaic-wrap { --m-bg: #e9edf2; background: var(--m-bg); padding: 64px 0 72px; }
+:root[data-theme="dark"] .mosaic-wrap { --m-bg: #0f1418; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mosaic-wrap { --m-bg: #0f1418; } }
+.mosaic-head { max-width: 640px; margin: 0 0 28px; }
+.m-eyebrow { font-family: var(--label); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+.mosaic-head h2 { font-size: clamp(28px, 3.4vw, 38px); line-height: 1.15; }
+.mosaic-head p:last-child { margin: 10px 0 0; color: var(--muted); }
+.mosaic { display: grid; gap: 16px; grid-template-columns: 1.15fr 1fr 1fr .9fr; grid-template-rows: 262px 220px 220px;
+  grid-template-areas: "a b b f" "a c d f" "e c d f"; }
+.tile { position: relative; overflow: hidden; border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #fff; transition: transform .25s ease, box-shadow .25s ease; }
+.tile:hover, .tile:focus-visible { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(10,20,30,.22); }
+.t-k { font-family: var(--label); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+.t-q { font-family: var(--display); font-size: 21px; line-height: 1.22; max-width: 22em; text-wrap: balance; }
+.t-big { font-family: var(--display); font-size: 54px; line-height: 1; font-variant-numeric: tabular-nums; margin-top: auto; }
+.t-s { font-size: 15px; line-height: 1.35; opacity: .9; }
+.t-f { font-family: var(--label); font-size: 12.5px; letter-spacing: .03em; opacity: .75; margin-top: auto; padding-top: 6px; }
+.t-big + .t-s + .t-f, .t-s + .t-f { margin-top: 6px; }
+.t-weather { grid-area: a; background: #0c3640; }
+.walkgrid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; width: 170px; margin: 14px 0 6px; }
+.walkgrid i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.18); transition: background .7s, transform .7s; }
+.walkgrid i.on { background: #7fd3ff; transform: scale(1.15); }
+.t-weather .t-big { color: #7fd3ff; margin-top: 4px; }
+.t-cong { grid-area: b; background: #0f4a55; }
+.spark { width: 100%; height: 110px; margin-top: auto; overflow: visible; }
+.spark .area { fill: rgba(239,111,94,.22); }
+.spark .line { fill: none; stroke: #ef6f5e; stroke-width: 2.4; vector-effect: non-scaling-stroke; }
+.spark .eid { fill: none; stroke: rgba(255,255,255,.45); stroke-width: 1.4; stroke-dasharray: 4 4; vector-effect: non-scaling-stroke; }
+.spark .band { fill: rgba(255,255,255,.05); }
+.spark text { font-family: var(--label); font-size: 11px; fill: rgba(255,255,255,.65); }
+.t-ride { grid-area: c; background: #135d69; }
+.arcs { width: 100%; flex: 1; min-height: 120px; }
+.t-ops { grid-area: d; background: #1a707b; color: #fff; }
+.t-ops .t-big { margin-top: 6px; }
+.lane { width: 100%; height: 60px; margin-top: auto; }
+.t-active { grid-area: e; background: #23838c; }
+.dims { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.dims i { font-style: normal; font-family: var(--label); font-size: 12px; padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,.16); transition: background .3s, color .3s; }
+.t-active:hover .dims i { background: #a8e6a1; color: #12361a; }
+.t-beyond { grid-area: f; background: #2a1b3d; padding: 0; justify-content: flex-start; }
+.hexes { position: absolute; inset: 0; width: 100%; height: 100%; }
+.t-beyond-in { position: relative; display: flex; flex-direction: column; gap: 6px; margin: 14px; padding: 18px 18px 16px; border-radius: 6px; background: rgba(24,14,38,.72); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.t-f-top { margin-top: 10px !important; }
+.t-beyond ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 14.5px; }
+.t-beyond li::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #ffd166; margin-right: 8px; vertical-align: 2px; }
+@media (max-width: 960px) { .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; grid-template-areas: "a b" "a c" "e d" "f f"; } .tile { min-height: 220px; } .t-beyond { min-height: 380px; } }
+@media (max-width: 560px) { .mosaic { grid-template-columns: 1fr; grid-template-areas: "a" "b" "c" "d" "e" "f"; } }
+@media (prefers-reduced-motion: reduce) { .tile { transition: none; } .tile:hover { transform: none; } }
+.news-wrap { padding: 56px 0; background: var(--paper); }
+.news { display: grid; grid-template-columns: 250px 1fr; gap: 40px; }
+.news h2 { font-size: 32px; position: relative; padding-left: 18px; }
+.news h2::before { content: ""; position: absolute; left: 0; top: .32em; width: 4px; height: .9em; background: var(--signal); border-radius: 2px; }
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-list li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.news-list li:first-child { padding-top: 0; }
+.news-list time { font-family: var(--label); font-size: 14px; font-weight: 600; color: var(--accent); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.news-list strong { font-weight: 700; }
+@media (max-width: 800px) { .news { grid-template-columns: 1fr; gap: 16px; } }
+.route-band { background: var(--paper); padding: 8px 0 16px; border-bottom: 1px solid var(--rule);
+  --hb-line: var(--accent); --hb-amber: #b8860b; --hb-ink: var(--ink); --hb-muted: var(--muted); --hb-bg: var(--paper); }
+.route-band .route { border-top: 0; }
+.route-band .stop.now::before { background: var(--signal); }
+.cite-link { color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--signal); }
+.stats { grid-template-columns: repeat(4, 1fr) !important; }
+@media (max-width: 800px) { .stats { grid-template-columns: repeat(2, 1fr) !important; } }
+.stats dt { font-size: 40px !important; }
+
+
+/* Skills */
+.skillset { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.sk { border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; background: var(--card); }
+.sk-wide { grid-column: 1 / -1; }
+.sk h3 { font-family: var(--label); font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.sk p { margin: 0 0 6px !important; display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+.tool { font-family: var(--label); font-size: 14px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--rule); background: var(--paper); }
+.tool.strong { background: var(--accent); border-color: var(--accent); color: var(--paper); font-weight: 600; }
+.pk { font-size: 15px; color: var(--muted); }
+.sk-note { margin-top: 12px !important; font-size: 14px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+/* Tighter spacing */
+body { line-height: 1.45; }
+.lede { line-height: 1.5; }
+.block p { margin-bottom: 10px; }
+section.block { padding: 36px 0; }
+.news-wrap { padding: 40px 0; }
+.news-list li { padding: 8px 0; }
+.mosaic-wrap { padding: 48px 0 56px; }
+.hero { padding: 64px 0 28px !important; }
+.hero-band .wrap > .hero { padding-bottom: 48px !important; }
+.hero .role { margin: 12px 0 14px !important; }
+.stats { padding: 24px 0 !important; }
+.route { padding: 20px 0 28px !important; }
+
+
+/* Home v4 */
+#hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 62% at 50% 45%, rgba(7,28,27,.7) 0%, rgba(7,28,27,.35) 62%, rgba(7,28,27,0) 100%); pointer-events: none; z-index: 0; }
+.hero-band .wrap { position: relative; z-index: 1; }
+.interests-line { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 0; margin: 0 auto 26px; max-width: 46em; font-family: var(--label); font-size: 14px; letter-spacing: .03em; color: #cfe3e0; }
+.interests-line span::before { content: "\00b7"; color: var(--hb-amber); font-weight: 700; margin: 0 10px; }
+.interests-line span:last-child::after { content: "\00b7"; color: var(--hb-amber); font-weight: 700; margin: 0 10px; }
+.lede { margin-bottom: 18px !important; }
+.mosaic-head { max-width: 960px !important; }
+.mosaic-head p { text-wrap: pretty; }
+.mosaic-head p { margin: 8px 0 0; color: var(--muted); }
+.mosaic-head .invite { color: var(--ink); font-style: italic; }
+.tile > *:not(.tile-bg):not(.hexes) { position: relative; }
+.tile-bg { position: absolute !important; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.t-weather { transition: background-color 1.2s ease, transform .25s ease, box-shadow .25s ease; }
+.t-weather.heat { background-color: #4a2c22; }
+.t-weather.heat .t-big, .t-weather.heat .walkgrid i.on { color: #ffb37a; }
+.t-weather.heat .walkgrid i.on { background: #ffb37a; }
+.t-weather.rain { background-color: #0b2d45; }
+.peds { width: 100%; height: 40px; margin-top: auto; }
+.spark .cursor { fill: #fff; }
+.spark .cur-line { stroke: rgba(255,255,255,.4); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.cong-read { font-family: var(--label); font-size: 12.5px; color: #ffb4a6; min-height: 1.2em; }
+
+
+/* Route timeline v2 */
+.route-band { padding: 40px 0 36px !important; }
+.tl-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.tl-head h2 { font-size: 30px; position: relative; padding-left: 18px; }
+.tl-head h2::before { content: ""; position: absolute; left: 0; top: .32em; width: 4px; height: .9em; background: var(--accent); border-radius: 2px; }
+.tl-legend { margin: 0; display: flex; gap: 16px; font-family: var(--label); font-size: 13px; color: var(--muted); }
+.tl-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.tl-scroll { overflow-x: auto; padding: 0 0 6px; }
+.tl-stop:last-child { padding-right: 0; }
+.rt { --edu: #0b6b68; --res: #7b3f8c; --work: #c47f00; --award: #d6493a;
+  list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(120px, 1fr)); min-width: 960px; height: 340px; position: relative; align-items: start; }
+.rt::before { content: ""; position: absolute; left: 0; right: 4%; top: 168px; height: 3px; background: var(--ink); opacity: .18; border-radius: 2px; }
+.rt::after { content: ""; position: absolute; right: 0; width: 4%; top: 168px; height: 3px; background: repeating-linear-gradient(90deg, var(--ink) 0 5px, transparent 5px 10px); opacity: .25; }
+.tl-stop { position: relative; display: flex; flex-direction: column; padding: 0 10px 0 0; }
+.tl-stop::before { content: ""; position: absolute; left: 0; top: 161px; width: 17px; height: 17px; border-radius: 50%; background: var(--paper); border: 4px solid var(--c); z-index: 1; transition: transform .2s; }
+.tl-stop::after { content: ""; position: absolute; left: 8px; width: 1px; background: var(--c); opacity: .5; }
+.tl-stop:nth-child(odd) { justify-content: flex-end; height: 150px; }
+.tl-stop:nth-child(odd)::after { top: 150px; height: 12px; }
+.tl-stop:nth-child(even) { justify-content: flex-start; padding-top: 194px; }
+.tl-stop:nth-child(even)::after { top: 178px; height: 14px; }
+.tl-stop:hover::before { transform: scale(1.25); }
+.tl-stop.edu { --c: var(--edu); } .tl-stop.res { --c: var(--res); } .tl-stop.work { --c: var(--work); } .tl-stop.award { --c: var(--award); }
+.tl-stop.award::before { background: var(--c); }
+.tl-stop.next::before { border-style: dashed; }
+.tl-yr { font-family: var(--label); font-size: 14px; font-weight: 600; color: var(--c); font-variant-numeric: tabular-nums; }
+.tl-t { font-family: var(--display); font-size: 16.5px; line-height: 1.25; color: var(--ink); margin-top: 2px; }
+.tl-s { font-size: 13.5px; line-height: 1.3; color: var(--muted); margin-top: 3px; }
+.tl-legend .edu { background: #0b6b68; } .tl-legend .res { background: #7b3f8c; } .tl-legend .work { background: #c47f00; } .tl-legend .award { background: #d6493a; }
+
+
+
+/* Hero text spread wider */
+.ident { max-width: 1180px !important; }
+.ident .role { max-width: none !important; }
+.ident .lede { max-width: 1080px !important; text-align: justify; text-align-last: center; hyphens: none; }
+.interests-line { max-width: 1180px !important; }
+
+
+/* hero layering: animation, then darkening, then text */
+.hero-band { isolation: isolate; }
+#hero-bg { z-index: 0; }
+.hero-band::before { z-index: 1 !important; }
+.hero-band > .wrap { z-index: 2 !important; }
+
+
+/* Research page v2 */
+.projects { padding-top: 36px !important; }
+.project { margin-bottom: 28px !important; }
+.p-head { padding: 18px 24px 16px !important; }
+.p-tag { font-size: 15px !important; font-weight: 600; letter-spacing: .08em !important; }
+.p-head h3 { font-size: 32px !important; margin: 2px 0 4px !important; }
+.p-sum { font-size: 17px !important; line-height: 1.4; }
+.papers { grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)) !important; }
+.paper { padding: 16px 18px !important; gap: 4px !important; }
+.paper h4 { font-size: 17.5px !important; line-height: 1.25 !important; margin: 0 0 2px !important; }
+.paper dt { margin-top: 6px !important; }
+.paper dd { font-size: 15px !important; line-height: 1.38 !important; }
+.paper dd.kf { padding: 8px 10px 8px 2px !important; }
+.paper dd.kf li { margin: 1px 0 !important; }
+.also { padding: 10px 24px !important; }
+@media (max-width: 1100px) { .papers { grid-template-columns: repeat(min(var(--n, 3), 3), minmax(0, 1fr)) !important; } }
+@media (max-width: 760px) { .papers { grid-template-columns: 1fr !important; } }
+
+
+/* Heading bars aligned with the letters */
+.block > h2, .news h2, .tl-head h2, .projects-head h2 { display: flex; align-items: center; gap: 14px; padding-left: 0 !important; line-height: 1.15 !important; white-space: nowrap; align-self: start; }
+.block > h2::before, .news h2::before, .tl-head h2::before, .projects-head h2::before { position: static !important; flex: none; width: 4px; height: .8em !important; margin-top: .06em; top: auto !important; left: auto !important; }
+/* Tile intro on one line where there is room */
+.mosaic-head { max-width: none !important; }
+@media (min-width: 1180px) { .mosaic-head .invite { white-space: nowrap; } }
+
+
+/* Round 12 */
+.block > h2, .news h2, .tl-head h2, .projects-head h2 { display: block !important; white-space: nowrap; line-height: 1.15 !important; }
+.block > h2::before, .news h2::before, .tl-head h2::before, .projects-head h2::before { content: "" !important; display: inline-block !important; position: static !important; width: 4px !important; height: .68em !important; margin: 0 14px 0 0 !important; vertical-align: baseline !important; border-radius: 2px; top: auto !important; left: auto !important; }
+.p-tag { font-size: 18px !important; }
+.p-note { text-transform: none; letter-spacing: .01em; font-weight: 500; color: var(--muted); font-size: 15px; }
+.proj-link { font-family: var(--label); font-size: 13px; margin-left: 8px; white-space: nowrap; text-decoration: none; border-bottom: 1px solid currentColor; }
+.pub .yr:empty { visibility: hidden; }
+.courses { columns: 1 !important; }
+.contact-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.contact-list li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.cl-k { font-family: var(--label); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+/* less line gap everywhere */
+body { line-height: 1.38 !important; }
+.lede { line-height: 1.45 !important; }
+.pub { padding: 10px 0 !important; }
+.pub .t { font-size: 18px !important; line-height: 1.25 !important; margin-bottom: 2px !important; }
+.pub .meta { font-size: 15px !important; }
+.tl li { padding: 8px 0 !important; }
+.tl .x span { font-size: 15px; }
+.courses li { padding: 2px 0 !important; }
+.paper dd { line-height: 1.3 !important; }
+.news-list li { padding: 6px 0 !important; }
+.pubs-group + .pubs-group { margin-top: 26px !important; }
+.page-band .wrap { padding-top: 36px !important; padding-bottom: 30px !important; }
+.page-band #page-sub[hidden] { display: none; }
+
+
+/* Live data network behind the name */
+#hero-net { position: absolute; inset: 0; z-index: 0; }
+#hero-net canvas { display: block; }
+.hero-band.net-on #hero-bg { display: none !important; }
+
+
+/* status labels on paper cards: breathing room on all sides */
+.paper .st { padding: 4px 11px !important; box-sizing: border-box; border-radius: 4px; }
+
+
+/* Phone layout */
+.menu-btn { display: none; }
+@media (max-width: 760px) {
+  .bar-inner { flex-wrap: nowrap; padding: 10px 16px; }
+  .brand { font-size: 17px; }
+  .menu-btn { display: inline-flex; flex-direction: column; justify-content: center; gap: 4px; width: 40px; height: 36px; padding: 0 9px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); cursor: pointer; }
+  .menu-btn span { display: block; height: 2px; background: var(--ink); border-radius: 1px; transition: transform .2s, opacity .2s; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--rule); box-shadow: 0 10px 24px rgba(0,0,0,.08); padding: 6px 16px 10px; }
+  .nav.open { display: flex; }
+  .nav a { padding: 11px 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
+  .nav a:last-child { border-bottom: 0; }
+  .nav a.on::after { display: none; }
+  .bar { position: sticky; }
+  .hero { padding: 44px 0 20px !important; }
+  .hero h1 { font-size: clamp(38px, 11vw, 52px) !important; }
+  .hero .role { font-size: 16px !important; }
+  .ident .lede { text-align: center !important; font-size: 16px; }
+  .interests-line { font-size: 12.5px; flex-direction: column; align-items: center; gap: 2px; }
+  .interests-line span::before { margin: 0 6px; }
+  .interests-line span:last-child::after { display: none; }
+  .hero-band .chip { font-size: 13px; padding: 7px 13px; }
+  .stats dt { font-size: 32px !important; }
+  .stats dd { font-size: 13.5px; }
+  /* timeline becomes vertical */
+  .tl-head { flex-direction: column; gap: 6px; }
+  .tl-scroll { overflow: visible; }
+  .rt { display: block !important; min-width: 0 !important; height: auto !important; padding-left: 26px !important; }
+  .rt::before { left: 7px !important; right: auto !important; top: 6px !important; bottom: 18px; width: 3px; height: auto !important; }
+  .rt::after { display: none; }
+  .tl-stop, .tl-stop:nth-child(odd), .tl-stop:nth-child(even) { display: block !important; height: auto !important; padding: 0 0 18px !important; margin: 0 !important; text-align: left; position: relative; }
+  .tl-stop::before { left: -26px !important; top: 2px !important; width: 15px; height: 15px; }
+  .tl-stop::after { display: none; }
+  .tl-yr, .tl-t, .tl-s { display: block; }
+  /* pages: no duplicate section title under the banner */
+  section.block:not([data-view="home"]) > h2 { display: none !important; }
+  section.block { grid-template-columns: 1fr !important; gap: 14px !important; padding: 24px 0 !important; }
+  .page-band h1 { font-size: 34px; }
+  .mosaic-head h2 { font-size: 26px; }
+  .tile { min-height: 0 !important; }
+  .t-active .dims { margin-top: 12px; }
+  .news-list li { grid-template-columns: 80px 1fr; gap: 10px; }
+  .contact-list li { grid-template-columns: 1fr; gap: 2px; }
+}
+
+
+/* Undergraduate projects: soft purple band, compact single column */
+.started { --ws-bg: #f1edf9; position: relative; margin: 12px 0 0; padding: 28px 0 30px; background: var(--ws-bg); box-shadow: 0 0 0 100vmax var(--ws-bg); clip-path: inset(0 -100vmax); }
+:root[data-theme="dark"] .started { --ws-bg: #1d1928; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .started { --ws-bg: #1d1928; } }
+.started h3 { font-size: 28px; line-height: 1.1; margin: 0; }
+.started-intro { margin: 2px 0 8px !important; line-height: 1.3; color: var(--muted); }
+.w { list-style: none; margin: 0; padding: 0; }
+.w li { display: grid; grid-template-columns: 78px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 5px 0; border-bottom: 1px solid rgba(110,80,160,.18); }
+.w-d { font-family: var(--label); font-size: 12.5px; font-weight: 600; color: #6c4fa3; font-variant-numeric: tabular-nums; }
+.w-t { font-family: var(--display); font-size: 16.5px; line-height: 1.2; }
+.w-o { justify-self: end; white-space: nowrap; font-family: var(--label); font-size: 12px; font-weight: 600; text-decoration: none; padding: 3px 10px; border-radius: 999px; }
+.w-o.w-pub { background: var(--signal); color: #1b1606; }
+.w-o.w-conf { background: #e2d9f3; color: #4b2f80; }
+.w-o.w-rev { background: var(--paper); border: 1px solid #c9bce3; color: #5a4a78; }
+.w-o.w-sub { background: var(--paper); border: 1px dashed #b3a3d3; color: #5a4a78; }
+.w-more { margin: 14px 0 0; font-size: 15px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.w-more strong { color: var(--ink); margin-right: 2px; }
+.w-more span { padding: 2px 10px; border-radius: 999px; background: rgba(255,255,255,.7); border: 1px solid rgba(110,80,160,.18); font-size: 14px; }
+@media (max-width: 760px) { .w li { grid-template-columns: 1fr; gap: 3px; } .w-o { justify-self: start; white-space: normal; } }
+
+.walkers { width: 100%; height: 58px; margin-top: auto; display: block; }
+.t-active .dims { margin-top: 8px !important; }
+
+footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 48px; }
+  .map-wrap { max-width: 480px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  section.block { grid-template-columns: 1fr; gap: 20px; }
+  .stops { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
+  .stops::before, .stops::after { display: none; }
+  .tl li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (max-width: 420px) {
+  body { font-size: 17px; }
+  .pub { grid-template-columns: 1fr; gap: 4px; }
+  .nav { gap: 14px; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <a class="brand" href="#home">Let&rsquo;s get to know Faeeza</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Pages">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#research" data-nav="research">Research</a>
+      <a href="#publications" data-nav="publications">Publications</a>
+      <a href="#teaching" data-nav="teaching">Teaching</a>
+      <a href="#awards" data-nav="awards">Awards</a>
+      <a href="#contact" data-nav="contact">Stay connected</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-band" id="page-band" hidden>
+  <div class="wrap">
+    <h1 id="page-title">Research</h1>
+    <p id="page-sub"></p>
+  </div>
+</div>
+
+<div class="hero-band" id="top" data-view="home">
+  <canvas id="hero-bg" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero">
+      <div class="ident">
+        <p class="eyebrow">Playing with data to solve transportation problems</p>
+        <h1 class="name">Nur&#8209;E&#8209;Faeeza Ankhi</h1>
+        <p class="role">Lecturer, Department of Urban and Regional Planning, Bangladesh University of Engineering and Technology (BUET)</p>
+        <p class="lede">I study how people travel and why they change course, from extreme heat and floods to congestion and ride-hailing. My work is data-centric: household surveys and large traffic datasets, analysed with statistical, spatial and machine learning models to give planners evidence for fairer, more resilient transport.</p>
+        <p class="interests-line" aria-label="Research interests"><span>Data-driven transportation planning</span><span>Transportation modelling and demand analysis</span><span>Travel behaviour and patterns</span><span>Sustainable and resilient transportation</span><span>Transportation and environment</span><span>Transportation and health</span><span>Statistical and machine learning methods</span></p>
+        <div class="links">
+          <a class="chip primary" href="https://scholar.google.com/citations?hl=en&amp;user=aJN5WjUAAAAJ">Google Scholar</a>
+          <a class="chip primary" href="https://www.researchgate.net/profile/Nur-E-Faeeza-Ankhi">ResearchGate</a>
+          <a class="chip primary" href="https://www.linkedin.com/in/nur-e-faeeza-ankhi-463307325/">LinkedIn</a>
+          <a class="chip primary" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="stats-wrap" data-view="home">
+  <div class="wrap">
+    <dl class="stats">
+      <div><dt>16</dt><dd>journal papers: 4 published, 5 under review, 4 submitted and 3 in preparation</dd></div>
+      <div><dt>4</dt><dd>conference papers, 2 at the TRB Annual Meeting and 2 at ICIURP</dd></div>
+      <div><dt>11</dt><dd>citations across my 4 published papers, all since 2025</dd></div>
+      <div><dt>3.98</dt><dd>BURP CGPA out of 4.00, 1st in Department and Faculty</dd></div>
+    </dl>
+  </div>
+</div>
+
+
+<section class="route-band" data-view="home" aria-labelledby="route-title">
+  <div class="wrap">
+    <div class="tl-head"><h2 id="route-title">Route so far</h2>
+      <p class="tl-legend" aria-hidden="true"><span><i class="edu"></i>Education</span><span><i class="res"></i>Research</span><span><i class="work"></i>Work</span></p></div>
+    <div class="tl-scroll">
+      <ol class="rt">
+        <li class="tl-stop edu"><span class="tl-yr">2019</span><span class="tl-t">Joins BURP</span><span class="tl-s">BUET</span></li>
+        <li class="tl-stop res"><span class="tl-yr">2022</span><span class="tl-t">First research project</span><span class="tl-s">Autonomous vehicles, Accident Research Institute</span></li>
+        <li class="tl-stop work"><span class="tl-yr">2023</span><span class="tl-t">Intern, Dhaka North City Corporation</span><span class="tl-s">Park quality assessment</span></li>
+        <li class="tl-stop res"><span class="tl-yr">2024</span><span class="tl-t">Defended undergraduate thesis</span><span class="tl-s">1st in Departmental BURP Thesis Award; 2nd in National BURP Thesis Competition</span></li>
+        <li class="tl-stop edu"><span class="tl-yr">2024</span><span class="tl-t">BURP, 1st in Department and Faculty</span><span class="tl-s">CGPA 3.98</span></li>
+        <li class="tl-stop work"><span class="tl-yr">2024</span><span class="tl-t">Part-time Lecturer</span><span class="tl-s">URP, BUET</span></li>
+        <li class="tl-stop work"><span class="tl-yr">2025</span><span class="tl-t">Lecturer</span><span class="tl-s">URP, BUET</span></li>
+        <li class="tl-stop edu next"><span class="tl-yr">2027</span><span class="tl-t">MURP (transportation)</span><span class="tl-s">Expected April 2027</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="mosaic-wrap" data-view="home" aria-labelledby="mosaic-title">
+  <div class="wrap">
+    <div class="mosaic-head">
+      <p class="m-eyebrow">My work at a glance</p>
+      <h2 id="mosaic-title">Each tile is one strand of my research</h2>
+      <p class="invite">Hover or tap a tile to explore it. You are welcome to read my papers. If you spot anything to correct or improve, please don't hesitate to tell me.</p>
+    </div>
+    <div class="mosaic">
+      <a class="tile t-weather" href="#weather">
+        <canvas class="tile-bg" id="wx" aria-hidden="true"></canvas>
+        <span class="t-k">Extreme weather and travel</span>
+        <span class="t-q">Who keeps walking when the heat or the rain arrives?</span>
+        <div class="walkgrid" id="walkgrid" aria-hidden="true"></div>
+        <span class="t-big" id="walk-num">18%</span>
+        <span class="t-s" id="walk-txt">of commuters walk on a normal day</span>
+        <span class="t-f">4 papers &middot; 318 households &middot; 12 zones</span>
+      </a>
+      <a class="tile t-cong" href="#congestion">
+        <span class="t-k">Congestion and land use</span>
+        <span class="t-q">Dhaka doesn't have two rush hours. It has one that lasts thirteen.</span>
+        <svg class="spark" id="spark" viewBox="0 0 400 110" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <span class="cong-read" id="cong-read"></span>
+        <span class="t-f">699,840 readings &middot; 81 roads &middot; Eid cut excess congestion by 41%</span>
+      </a>
+      <a class="tile t-ride" href="#ride-hailing">
+        <span class="t-k">Ride-hailing and shared mobility</span>
+        <span class="t-q">Does ride-hailing replace the bus, or the walk?</span>
+        <canvas class="arcs" id="arcs" aria-hidden="true"></canvas>
+        <span class="t-f">MURP thesis &middot; BRTA fare and policy review</span>
+      </a>
+      <a class="tile t-ops" href="#congestion">
+        <span class="t-k">Traffic operations</span>
+        <span class="t-big">12</span>
+        <span class="t-s">driver-behaviour scenarios simulated at one Dhaka intersection</span>
+        <canvas class="lane" id="lane" aria-hidden="true"></canvas>
+        <span class="t-f">VISSIM &middot; school traffic study</span>
+      </a>
+      <a class="tile t-active" href="#active">
+        <span class="t-k">Active and non-motorised transport</span>
+        <span class="t-q">How well do streets serve people who walk, cycle or ride rickshaws?</span>
+        <canvas class="walkers" id="walkers" aria-hidden="true"></canvas>
+        <div class="dims"><i>Comfort</i><i>Urban services</i><i>Safety</i><i>Parking</i></div>
+      </a>
+      <a class="tile t-beyond" href="#regional">
+        <canvas class="hexes" id="hexes" aria-hidden="true"></canvas>
+        <div class="t-beyond-in">
+          <span class="t-k">Beyond transport</span>
+          <span class="t-q">Who gets services, growth and a decent home?</span>
+          <ul><li>Human development across 64 districts</li><li>Public facility equity</li><li>Functional regions</li><li>Regional growth</li><li>Rural livelihoods</li><li>Slum upgrading</li><li>Informal markets</li><li>Agro-industrial land</li></ul>
+          <span class="t-f t-f-top">8 papers &middot; 2 published</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="news-wrap" data-view="home" aria-labelledby="news-title">
+  <div class="wrap news">
+    <h2 id="news-title">News</h2>
+    <ol class="news-list">
+      <li><time>Nov 2026</time><span>Selected for the <strong>Prime Minister Gold Medal</strong>, the Government of Bangladesh's highest award for undergraduate academic excellence.</span></li>
+      <li><time>Oct 2026</time><span>Two papers accepted at <strong>ICIURP 2027</strong>: functional regions in Barishal, and district-level human development.</span></li>
+      <li><time>Sep 2026</time><span>Helped build a cost-based <strong>ride-hailing fare model</strong> for the BRTA Ride-Sharing Policy Review Committee.</span></li>
+      <li><time>Feb 2026</time><span>Paper on extreme weather and modal shift published in <strong>Transportation</strong>; land suitability paper published in <strong>City and Environment Interactions</strong>.</span></li>
+      <li><time>Jan 2026</time><span>Presented a poster on travel adaptation to extreme weather at the <strong>TRB 105th Annual Meeting</strong>, Washington, D.C.</span></li>
+      <li><time>Aug 2025</time><span>Extreme weather sensitivity paper published in <strong>Natural Hazards</strong>.</span></li>
+    </ol>
+  </div>
+</section>
+
+
+<main class="wrap">
+
+  <section class="projects" id="research" data-view="research">
+    <article class="project" id="weather" style="--n:5">
+      <header class="p-head">
+        <span class="p-tag">Project 1 &middot; 2023 &ndash; present <span class="p-note">(from my undergraduate thesis)</span></span>
+        <h3>Extreme weather and urban travel</h3>
+        <p class="p-sum">How heat, heavy rain and waterlogging change the way Dhaka travels.</p>
+      </header>
+      <div class="papers">
+        <div class="paper">
+          <span class="st pub">Natural Hazards &middot; 2025</span>
+          <h4><a href="https://doi.org/10.1007/s11069-025-07546-z">Investigating sensitivity to extreme weather of a mid-size global south city</a></h4>
+          <dl>
+            <dt>Research question</dt><dd>Which parts of Dhaka are most sensitive to extreme heat and waterlogging together?</dd>
+            <dt>Method</dt><dd>GIS-based multi-criteria analysis (AHP) with spectral indices and physical, hydrological and geomorphological variables.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Only about 20% of the city has low sensitivity.</li><li>Almost half (49%) is highly or very highly susceptible.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st pub">Transportation &middot; 2026</span>
+          <h4><a href="https://doi.org/10.1007/s11116-026-10726-w">Navigating Dhaka's extreme weather: inconveniences and modal shifts among commuters and non-commuters</a></h4>
+          <dl>
+            <dt>Research question</dt><dd>Who switches travel mode during extreme weather, and why?</dd>
+            <dt>Method</dt><dd>Survey of 318 households in 12 high- and low-sensitivity zones; binary logistic regression.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Women, older adults and high-income travellers are the most likely to switch modes.</li><li>Men, commuters and vehicle owners tend to stay with their usual mode.</li><li>Waterlogging, checking the weather and having an alternative route all make a switch more likely.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st conf">Presented in person &middot; TRB 105th Annual Meeting &middot; 2026</span>
+          <h4>Towards Resilient Transportation for Dhaka: Analyzing the Dynamics of Travel Adaptation Strategies in Response to Extreme Weather</h4>
+          <dl>
+            <dt>Research question</dt><dd>How do commuters and non-commuters adapt their travel to extreme heat, heavy rain and waterlogging?</dd>
+            <dt>Method</dt><dd>318 respondents in 12 high- and low-sensitivity zones; binomial and multinomial logistic regression. I presented this poster in Washington, D.C.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Adaptation strategies differ by weather type and by location.</li><li>They also differ across socio-economic and demographic groups.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Under review &middot; Travel Behaviour and Society</span>
+          <h4>Weather variability and spatial heterogeneity in urban travel: Evidence from statistical, spatial, and machine learning analyses</h4>
+          <dl>
+            <dt>Research question</dt><dd>Do weather and location change mode choice, travel time and cost, and which matters more?</dd>
+            <dt>Method</dt><dd>1,984 trips; multinomial and multilevel logit, Moran's I, Random Forest, XGBoost and SHAP.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Weather strongly changes mode choice and raises travel time, waiting time and cost.</li><li>Location matters too, but weather is the dominant driver.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Under review &middot; Transportation Research Part D</span>
+          <h4>Traveling through extreme weather: A statistical and machine learning approach</h4>
+          <dl>
+            <dt>Research question</dt><dd>Who cancels, reschedules, reroutes or works from home when extreme weather hits?</dd>
+            <dt>Method</dt><dd>1,778 observations; binary and multinomial logit, Decision Tree, Random Forest, XGBoost and SHAP.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Trip purpose and income are the strongest determinants.</li><li>Waterlogging triggers more adaptation than extreme heat.</li><li>Non-commuters adapt far more than commuters.</li></ul></dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="congestion" style="--n:3">
+      <header class="p-head">
+        <span class="p-tag">Project 2 &middot; 2025 &ndash; present</span>
+        <h3>Congestion, land use and traffic operations</h3>
+        <p class="p-sum">Why Dhaka's roads jam, from the whole network down to one intersection.</p>
+      </header>
+      <div class="papers">
+        <div class="paper">
+          <span class="st rev">Under review &middot; Journal of Transport Geography</span>
+          <h4>Thirteen hours of slowdown: When, where and around what land uses Dhaka's roads congest</h4>
+          <dl>
+            <dt>Research question</dt><dd>When and where does Dhaka congest, and around which land uses?</dd>
+            <dt>Method</dt><dd>699,840 ten-minute readings on 81 road segments (April to June 2026); panel event-study models, spatial statistics, spatial regression and gradient boosting with SHAP.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>No familiar twin peaks: the slowdown stretches across one long block of the day.</li><li>Some parts of the city congest mainly at night.</li><li>A major holiday cut congestion sharply on the same roads, so demand, not road supply, drives it.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Under review &middot; PLOS ONE</span>
+          <h4>Case study: Performance of a heterogeneous urban T-intersection under different scenarios</h4>
+          <dl>
+            <dt>Research question</dt><dd>How do small changes in driver behaviour affect a mixed-traffic intersection?</dd>
+            <dt>Method</dt><dd>PTV VISSIM microsimulation with the Wiedemann 74 car-following model across 12 behaviour scenarios.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Small changes in following distance, lane discipline and attentiveness ripple through the whole intersection.</li><li>They shift capacity, delay, travel time, fuel use and emissions.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Submitted</span>
+          <h4>Traffic Conditions Around an Urban School Under Intensifying Surrounding Land Use: A Case Study of Dhaka</h4>
+          <dl>
+            <dt>Research question</dt><dd>How does a large urban school affect the roads around it, and what would fix it?</dd>
+            <dt>Method</dt><dd>Counts at five intersections and three pedestrian locations; focus groups and interviews with the school, residents and traffic police.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Peak hour factor above 0.90 at four of five intersections.</li><li>School-side roads jam because of missing off-street parking and encroached footpaths; arterials jam from unmanaged through traffic.</li><li>Proposes a managed school transport service and other short- and long-term measures.</li></ul></dd>
+          </dl>
+        </div>
+      </div>
+      <p class="also">In preparation: <em>Jams start with demand but end alike: Onset and duration of congestion in Dhaka</em>, and a paper on road crashes and safety in Dhaka.</p>
+    </article>
+
+    <article class="project" id="ride-hailing" style="--n:3">
+      <header class="p-head">
+        <span class="p-tag">Project 3 &middot; 2024 &ndash; present</span>
+        <h3>Ride-hailing and shared mobility</h3>
+        <p class="p-sum">What ride-hailing means for travel, vehicle-kilometres and policy.</p>
+      </header>
+      <div class="papers">
+        <div class="paper">
+          <span class="st pol">Policy work &middot; 2026</span>
+          <h4>Ride-hailing fare model and policy review</h4>
+          <dl>
+            <dt>Research question</dt><dd>What should a fair, cost-based ride-hailing fare include?</dd>
+            <dt>Method</dt><dd>Built a cost-based fare model that separates distance and time costs from profit margin and platform commission.</dd>
+            <dt class="kf">Contribution</dt><dd class="kf"><ul><li>Reviewed the Ride-Sharing Service Policy 2017 for amendment, including data reporting and a commission cap.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st ong">Ongoing &middot; MURP thesis</span>
+          <h4>A multiscale analysis of ride-hailing trip characteristics, demand, accessibility, and natural and built-environment features in Dhaka</h4>
+          <dl>
+            <dt>Research question</dt><dd>How do ride-hailing trips, demand and accessibility vary across Dhaka, and how do they relate to the built and natural environment?</dd>
+            <dt>Method</dt><dd>Origin-destination, travel time and distance analysis at the micro scale; spatial and non-linear models at the macro scale. Supervised by Prof. Asif-Uz-Zaman Khan.</dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st ong">Starting &middot; Proposal completed</span>
+          <h4>Socio-economic outcomes and vehicle-kilometres travelled from ride-hailing-induced modal shifts</h4>
+          <dl>
+            <dt>Research question</dt><dd>Does ride-hailing replace or complement buses, metro and walking, and does it raise vehicle-kilometres travelled?</dd>
+            <dt>Method</dt><dd>Intercept survey of 384 Uber and Pathao car passengers and drivers; multinomial logit and Random Forest with SHAP.</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="active" style="--n:2">
+      <header class="p-head">
+        <span class="p-tag">Project 4 &middot; 2025 &ndash; present</span>
+        <h3>Active transportation</h3>
+        <p class="p-sum">What makes walking and cycling safe and pleasant.</p>
+      </header>
+      <div class="papers">
+        <div class="paper">
+          <span class="st conf">TRB 106th Annual Meeting &middot; 2027</span>
+          <h4>Listening to the Streets: Perception of Non-Motorized Transport Users in Cox's Bazar Municipality</h4>
+          <dl>
+            <dt>Research question</dt><dd>How satisfied are walking and cycling users with services, and where are the gaps?</dd>
+            <dt>Method</dt><dd>Structured survey; chi-square tests, correlation, principal component analysis and hierarchical clustering.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Satisfaction rests on four dimensions: comfort, urban services, safety, and parking and pedestrian facilities.</li><li>The biggest gaps are in parking, safety, sidewalk quality and the environment.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st ong">In preparation</span>
+          <h4>Walkability and the built environment in Dhaka</h4>
+          <dl>
+            <dt>Research question</dt><dd>How does the built environment shape pedestrian experience and behaviour?</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="regional" style="--n:5">
+      <header class="p-head">
+        <span class="p-tag">Project 5 &middot; Regional planning</span>
+        <h3>Regional development and equity</h3>
+        <p class="p-sum">Who gets services, growth and development across Bangladesh.</p>
+      </header>
+      <div class="papers">
+        <div class="paper">
+          <span class="st conf">ICIURP 2027 &middot; Accepted</span>
+          <h4>Spatial Variation in Human Development Index (HDI) across Bangladesh and Its Underlying Causes</h4>
+          <dl>
+            <dt>Research question</dt><dd>How does human development vary across districts, and why?</dd>
+            <dt>Method</dt><dd>District HDI from national statistics, four classification methods and Moran's I.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>All highly developed districts are in Dhaka and Chattogram divisions.</li><li>Lagging Rangpur and Mymensingh received about 3% of the budget each, against 39% for Dhaka.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st conf">ICIURP 2027 &middot; Accepted</span>
+          <h4>Does Functional Region Diverge from Administrative Boundary? District Catchments in Barishal Division</h4>
+          <dl>
+            <dt>Research question</dt><dd>Why do districts' real catchments differ from their official boundaries?</dd>
+            <dt>Method</dt><dd>Reilly's law of retail gravitation in GIS, then a comparison of contrasting districts.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Patuakhali's reach is 6% larger than its boundary; Jhalokathi's is about 60% smaller.</li><li>Population change, job diversity and connectivity matter more than density.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Under review &middot; PLOS ONE</span>
+          <h4>Understanding the dynamics of rural livelihood strategy choices in Bangladesh</h4>
+          <dl>
+            <dt>Research question</dt><dd>Why do rural households diversify, intensify or migrate?</dd>
+            <dt>Method</dt><dd>452 household surveys, 12 focus groups and 23 interviews in 10 villages; ordinal and multinomial logit.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Household size, income, land ownership, shocks and electricity access shape choices.</li><li>Roads have improved in most villages, but other amenities lag behind.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Submitted &middot; Social Indicators Research</span>
+          <h4>Does every corner of a developing country receive equitable public facility provision?</h4>
+          <dl>
+            <dt>Research question</dt><dd>How evenly are schools, health facilities and markets spread across 64 districts?</dd>
+            <dt>Method</dt><dd>Location quotients, Local Moran's I clusters and a threshold-population gap analysis.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Health is the most unequal: 30% of provision serves 50% of people.</li><li>22% of districts are severely deprived.</li><li>The strongest deprivation cluster sits at Dhaka's own fringe, not in remote areas.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Submitted &middot; Social Indicators Research</span>
+          <h4>Analysis of economic growth and regional competitiveness: A long-run approach in a coastal delta</h4>
+          <dl>
+            <dt>Research question</dt><dd>Which industries drive growth and competitiveness in Barishal's districts?</dd>
+            <dt>Method</dt><dd>Shift-share analysis of 2003 and 2013 employment, Klassen typology and net-shift regionalisation.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Wood products, non-metallic minerals and wholesale grew fastest; retail, hotels and education slowest.</li></ul></dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="informal" style="--n:3">
+      <header class="p-head">
+        <span class="p-tag">Project 6 &middot; Urban planning</span>
+        <h3>Informal economy, housing and land use</h3>
+        <p class="p-sum">Planning for the urban poor and for land under pressure.</p>
+      </header>
+      <div class="papers">
+        <div class="paper">
+          <span class="st pub">Cities &middot; 2025</span>
+          <h4><a href="https://doi.org/10.1016/j.cities.2025.105857">Formal management structure of informal market: Bou Bazar of Dhaka</a></h4>
+          <dl>
+            <dt>Research question</dt><dd>How does an informal market under formal management actually work?</dd>
+            <dt>Method</dt><dd>Focus groups, interviews and participatory rapid appraisal tools.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>Limited operating hours make efficient use of public space.</li><li>Vendors are more satisfied when autonomy is balanced with outside management.</li><li>The service fee served no clear purpose beyond exploitation.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st pub">City and Environment Interactions &middot; 2026</span>
+          <h4><a href="https://doi.org/10.1016/j.cacint.2026.100333">Ensemble tree-based ML for agro-industrial land suitability: Narayanganj City</a></h4>
+          <dl>
+            <dt>Research question</dt><dd>Where can agro-industry grow without losing farmland and water?</dd>
+            <dt>Method</dt><dd>Random Forest and XGBoost in GIS, with SHAP, on nine spatial variables (about 94% accuracy).</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>38% of the city is suitable, but only 13% highly suitable.</li><li>Only 8% of suitable land overlaps the industrial zones in the Detailed Area Plan.</li></ul></dd>
+          </dl>
+        </div>
+        <div class="paper">
+          <span class="st rev">Under review &middot; PLOS ONE</span>
+          <h4>Transforming Dhaka's slums: Suitable locations and community-preferred upgradation strategies</h4>
+          <dl>
+            <dt>Research question</dt><dd>Which slums suit upgrading, and which approach do residents prefer?</dd>
+            <dt>Method</dt><dd>Multi-criteria decision-making over 29 DAP priority sites, then focus groups at the selected sites.</dd>
+            <dt class="kf">Key findings</dt><dd class="kf"><ul><li>12 of the 29 sites are suitable.</li><li>About half prefer on-site upgrading and a quarter prefer sites-and-services.</li><li>Owners and tenants want different things.</li></ul></dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+      <section class="started" aria-labelledby="started-title">
+      <h3 id="started-title">Where it started: undergraduate projects</h3>
+      <p class="started-intro">16 projects during my BURP at BUET; 10 of them grew into papers.</p>
+      <ol class="w">
+        <li><span class="w-d">2023&ndash;24</span><span class="w-t">Undergraduate thesis: travel of commuters and non-commuters in extreme weather</span><a class="w-o w-pub" href="#weather">2 published &middot; 1 conference &middot; 2 under review</a></li>
+        <li><span class="w-d">2023&ndash;24</span><span class="w-t">Informal markets and the role of stakeholders</span><a class="w-o w-pub" href="#informal">Published</a></li>
+        <li><span class="w-d">2022</span><span class="w-t">Industry locations in Narayanganj City Corporation</span><a class="w-o w-pub" href="#informal">Published</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Regionalisation by Human Development Index</span><a class="w-o w-conf" href="#regional">Conference</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Functional regions vs administrative areas</span><a class="w-o w-conf" href="#regional">Conference</a></li>
+        <li><span class="w-d">2022&ndash;23</span><span class="w-t">Rural livelihood strategies in Bangladesh</span><a class="w-o w-rev" href="#regional">Under review</a></li>
+        <li><span class="w-d">2022</span><span class="w-t">Slum improvement in DAP low-income settlements</span><a class="w-o w-rev" href="#informal">Under review</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Traffic impact around Viqarunnisa Noon School</span><a class="w-o w-sub" href="#congestion">Submitted</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Long-run economic growth in Barishal districts</span><a class="w-o w-sub" href="#regional">Submitted</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Spatial concentration of public facilities</span><a class="w-o w-sub" href="#regional">Submitted</a></li>
+        <li><span class="w-d">2022</span><span class="w-t">Autonomous vehicle perceptions</span><span></span></li>
+        <li><span class="w-d">2023</span><span class="w-t">Highway congestion during festivals</span><span></span></li>
+        <li><span class="w-d">2023</span><span class="w-t">Accessibility audit at BUET</span><span></span></li>
+        <li><span class="w-d">2022</span><span class="w-t">Agargaon MRT station area</span><span></span></li>
+        <li><span class="w-d">2021&ndash;22</span><span class="w-t">Student activity during COVID-19</span><span></span></li>
+        <li><span class="w-d">2021&ndash;22</span><span class="w-t">Landscape plan for Thanchi</span><span></span></li>
+      </ol>
+    </section>
+  </section>
+
+    <section class="block" id="publications" data-view="publications">
+    <h2>Publications</h2>
+    <div>
+      <div class="pubs-group">
+        <h3>Journal articles</h3>
+        <article class="pub">
+          <div class="yr">2026</div>
+          <div>
+            <p class="t"><a href="https://doi.org/10.1007/s11116-026-10726-w">Navigating Dhaka's extreme weather: inconveniences and modal shifts among commuters and non-commuters</a></p>
+            <p class="meta">First author &middot; <em>Transportation</em> <span class="tag q1">Q1</span> <a class="proj-link" href="#weather">Project 1: Extreme weather &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr">2026</div>
+          <div>
+            <p class="t"><a href="https://doi.org/10.1016/j.cacint.2026.100333">Ensemble tree-based ML for agro-industrial land suitability: spatial modeling for Narayanganj City</a></p>
+            <p class="meta">Second author (equal contribution) &middot; <em>City and Environment Interactions</em> <span class="tag q1">Q1</span> <a class="proj-link" href="#informal">Project 6: Housing and land &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr">2025</div>
+          <div>
+            <p class="t"><a href="https://doi.org/10.1007/s11069-025-07546-z">Investigating sensitivity to extreme weather of a mid-size global south city: an integrated MCDA (AHP)-GIS based modeling approach</a></p>
+            <p class="meta">First author &middot; <em>Natural Hazards</em> <span class="tag q1">Q1</span> <a class="proj-link" href="#weather">Project 1: Extreme weather &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr">2025</div>
+          <div>
+            <p class="t"><a href="https://doi.org/10.1016/j.cities.2025.105857">Formal management structure of informal market: A case study of Bou Bazar of Dhaka, Bangladesh</a></p>
+            <p class="meta">First author &middot; <em>Cities</em> <span class="tag q1">Q1</span> <a class="proj-link" href="#informal">Project 6: Housing and land &rarr;</a></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="pubs-group">
+        <h3>Conference papers</h3>
+        <article class="pub">
+          <div class="yr">2027</div>
+          <div>
+            <p class="t">Listening to the Streets: Perception of Non-Motorized Transport Users in Cox's Bazar Municipality, Bangladesh</p>
+            <p class="meta">Second author &middot; <em>TRB 106th Annual Meeting</em>, Washington, D.C. <a class="proj-link" href="#active">Project 4: Active transport &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr">2027</div>
+          <div>
+            <p class="t">Does Functional Region Diverge from Administrative Boundary: A Gravity-Based Delineation of District Catchments in Barishal Division, Bangladesh</p>
+            <p class="meta">First author &middot; <em>ICIURP 2027</em> (accepted) <a class="proj-link" href="#regional">Project 5: Regional equity &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr">2027</div>
+          <div>
+            <p class="t">Spatial Variation in Human Development Index (HDI) across Bangladesh and Its Underlying Causes: A District-Level Analysis</p>
+            <p class="meta">Third author (equal contribution) &middot; <em>ICIURP 2027</em> (accepted) <a class="proj-link" href="#regional">Project 5: Regional equity &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr">2026</div>
+          <div>
+            <p class="t">Towards Resilient Transportation for Dhaka: Analyzing the Dynamics of Travel Adaptation Strategies in Response to Extreme Weather</p>
+            <p class="meta">First author, presented in person &middot; <em>TRB 105th Annual Meeting</em>, Washington, D.C. <a class="proj-link" href="#weather">Project 1: Extreme weather &rarr;</a></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="pubs-group">
+        <h3>Under review</h3>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Weather variability and spatial heterogeneity in urban travel: Evidence from statistical, spatial, and machine learning analyses</p>
+            <p class="meta">First author &middot; <em>Travel Behaviour and Society</em> <a class="proj-link" href="#weather">Project 1: Extreme weather &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Traveling through extreme weather: A statistical and machine learning approach</p>
+            <p class="meta">First author &middot; <em>Transportation Research Part D</em> <a class="proj-link" href="#weather">Project 1: Extreme weather &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Thirteen hours of slowdown: When, where and around what land uses Dhaka's roads congest</p>
+            <p class="meta">First author &middot; <em>Journal of Transport Geography</em> <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Case study: Performance of a heterogeneous urban T-intersection under different scenarios</p>
+            <p class="meta">First author &middot; <em>PLOS ONE</em> <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Understanding the dynamics of rural livelihood strategy choices in Bangladesh: Challenges and associated factors</p>
+            <p class="meta">First author &middot; <em>PLOS ONE</em> <a class="proj-link" href="#regional">Project 5: Regional equity &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Transforming Dhaka's slums: A multi-criteria approach to identify suitable locations and community-preferred upgradation strategies</p>
+            <p class="meta">First author &middot; <em>PLOS ONE</em> <a class="proj-link" href="#informal">Project 6: Housing and land &rarr;</a></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="pubs-group">
+        <h3>Submitted</h3>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Does every corner of a developing country receive equitable public facility provision? Evidence from location quotient analysis</p>
+            <p class="meta">First author &middot; <em>Social Indicators Research</em> <a class="proj-link" href="#regional">Project 5: Regional equity &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Analysis of economic growth and regional competitiveness: A long-run approach in a coastal delta</p>
+            <p class="meta">First author &middot; <em>Social Indicators Research</em> <a class="proj-link" href="#regional">Project 5: Regional equity &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Traffic conditions around an urban school under intensifying surrounding land use: A case study of Dhaka, Bangladesh</p>
+            <p class="meta">First author <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="pubs-group">
+        <h3>Ongoing</h3>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Jams start with demand but end alike: Onset and duration of congestion in Dhaka</p>
+            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Road crashes and safety in Dhaka (working title)</p>
+            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">Walkability and the built environment in Dhaka (working title)</p>
+            <p class="meta">In preparation <a class="proj-link" href="#active">Project 4: Active transport &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">A multiscale analysis of ride-hailing trip characteristics, demand, accessibility, and natural and built-environment features in Dhaka</p>
+            <p class="meta">MURP thesis, ongoing <a class="proj-link" href="#ride-hailing">Project 3: Ride-hailing &rarr;</a></p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="block" id="teaching" data-view="teaching">
+    <h2>Teaching</h2>
+    <div>
+      <ul class="tl">
+        <li><span class="d">2025 &ndash; present</span><span class="x"><strong>Lecturer</strong><span>Department of Urban and Regional Planning, BUET</span></span></li>
+        <li><span class="d">2024 &ndash; 2025</span><span class="x"><strong>Part-time Lecturer</strong><span>Department of Urban and Regional Planning, BUET</span></span></li>
+        <li><span class="d">2023</span><span class="x"><strong>Intern, Dhaka North City Corporation</strong><span>Site-specific quality assessment of three Gulshan parks, under the Chief Town Planner</span></span></li>
+      </ul>
+      <p style="margin-top:24px">Courses taught</p>
+      <ul class="courses">
+        <li><span class="code">PLAN 298</span>Data Analytics</li>
+        <li><span class="code">PLAN 296</span>Computer Application in Planning (statistical programming language)</li>
+        <li><span class="code">PLAN 393</span>Introduction to Operations Research</li>
+        <li><span class="code">PLAN 282</span>Participatory Planning Studio</li>
+        <li><span class="code">PLAN 214</span>Site and Area Planning Studio</li>
+        <li><span class="code">PLAN 312</span>Urban Planning Studio</li>
+        <li><span class="code">PLAN 803</span>Traffic and Transportation</li>
+        <li><span class="code">PLAN 415</span>Planning of Utility and Municipal Services</li>
+        <li><span class="code">PLAN 401</span>Project Evaluation and Management</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="awards" data-view="awards">
+    <h2>Awards</h2>
+    <ul class="tl">
+      <li><span class="d">2026</span><span class="x"><strong>Prime Minister Gold Medal</strong><span>Selected; the Government of Bangladesh's highest award for undergraduate academic excellence</span></span></li>
+      <li><span class="d">2025</span><span class="x"><strong>Abdul Hamid Award for Best Thesis, 1st position</strong><span>Department of Urban and Regional Planning, BUET</span></span></li>
+      <li><span class="d">2024</span><span class="x"><strong>2nd position, National BURP Thesis Competition</strong><span>Bangladesh Institute of Planners (BIP), across all planning schools</span></span></li>
+      <li><span class="d">2021 &ndash; 2022</span><span class="x"><strong>MTB and Saifuddin Memorial Trust Fund Scholarship</strong><span>For outstanding results at BUET</span></span></li>
+      <li><span class="d">2021</span><span class="x"><strong>2nd Runner-up, Bikiron</strong><span>Competition organised by SREDA</span></span></li>
+      <li><span class="d">2019, 2021, 2022</span><span class="x"><strong>Dean's List Award</strong><span>BUET</span></span></li>
+      <li><span class="d">2019 &ndash; 2022</span><span class="x"><strong>University Merit Scholarship</strong><span>BUET, four years</span></span></li>
+      <li><span class="d">2018</span><span class="x"><strong>Government Scholarship (monthly)</strong><span>For outstanding results in the Higher Secondary Certificate</span></span></li>
+      <li><span class="d">2013</span><span class="x"><strong>Government Scholarship (monthly)</strong><span>For outstanding results in the Junior School Certificate</span></span></li>
+    </ul>
+  </section>
+
+  <section class="block" id="skills" data-view="home">
+    <h2>Technical skills</h2>
+    <div>
+      <div class="skillset">
+        <div class="sk"><h3>Programming</h3><p><span class="tool strong">R</span><span class="tool strong">Python</span><span class="tool">C</span></p></div>
+        <div class="sk"><h3>Statistical analysis</h3><p><span class="tool">SPSS</span><span class="tool">AMOS</span><span class="tool">Stata</span></p></div>
+        <div class="sk"><h3>Spatial analysis</h3><p><span class="tool strong">ArcGIS</span><span class="tool strong">ArcGIS Pro</span><span class="tool">QGIS</span></p></div>
+        <div class="sk"><h3>Database management</h3><p><span class="tool">SQL</span></p></div>
+        <div class="sk"><h3>Traffic simulation and modelling</h3><p><span class="tool strong">PTV Vissim</span><span class="tool">PTV Visum</span></p></div>
+        <div class="sk"><h3>Design and visualisation</h3><p><span class="tool">AutoCAD</span><span class="tool">Adobe Illustrator</span></p></div>
+        <div class="sk"><h3>Workflow</h3><p><span class="tool strong">Excel</span><span class="tool">Jupyter Notebook</span><span class="tool">Word, PowerPoint, Access, Project</span></p></div>
+      </div>
+      <p class="sk-note"><span class="tool strong">Highlighted</span> tools are the ones I use most.</p>
+    </div>
+  </section>
+
+  <section class="block" id="contact" data-view="contact">
+    <h2>Stay connected</h2>
+    <div>
+      <p>Department of Urban and Regional Planning<br>Bangladesh University of Engineering and Technology<br>Dhaka 1000, Bangladesh</p>
+      <ul class="contact-list">
+        <li><span class="cl-k">Email</span><a href="mailto:nurefaeeza@urp.buet.ac.bd">nurefaeeza@urp.buet.ac.bd</a></li>
+        <li><span class="cl-k">LinkedIn</span><a href="https://www.linkedin.com/in/nur-e-faeeza-ankhi-463307325/">linkedin.com/in/nur-e-faeeza-ankhi</a></li>
+        <li><span class="cl-k">Instagram</span><a href="https://www.instagram.com/faeeza_nur/">@faeeza_nur</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Nur-E-Faeeza Ankhi</span>
+    <span>Last updated November 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var PAGES = {
+    research: ["Research", "What I study, the questions I ask and what I have found."],
+    publications: ["Publications", "Journal articles, conference papers and work under review."],
+    teaching: ["Teaching", "Courses I teach and have taught at BUET, and earlier professional experience."],
+    awards: ["Awards", "Recognition for research and academic results."],
+    contact: ["Stay connected", "Get in touch about research, collaboration or teaching."]
+  };
+  var PROJECTS = ["weather", "congestion", "ride-hailing", "active", "regional", "informal"];
+  var views = document.querySelectorAll("[data-view]"), navs = document.querySelectorAll("[data-nav]");
+  var band = document.getElementById("page-band"), title = document.getElementById("page-title"), sub = document.getElementById("page-sub");
+  function route() {
+    var h = (location.hash || "").replace("#", ""), target = null;
+    if (PROJECTS.indexOf(h) > -1) { target = h; h = "research"; }
+    if (h !== "home" && !PAGES[h]) h = "home";
+    views.forEach(function (v) { v.classList.toggle("off", v.getAttribute("data-view") !== h); });
+    navs.forEach(function (a) { a.classList.toggle("on", a.getAttribute("data-nav") === h); if (a.getAttribute("data-nav") === h) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+    if (h === "home") { band.hidden = true; document.title = "Nur-E-Faeeza Ankhi"; }
+    else { band.hidden = false; title.textContent = PAGES[h][0]; sub.textContent = PAGES[h][1]; sub.hidden = !PAGES[h][1]; document.title = PAGES[h][0] + " \u00b7 Nur-E-Faeeza Ankhi"; }
+    if (target) { var el = document.getElementById(target); if (el) setTimeout(function () { el.scrollIntoView({ block: "start" }); }, 0); }
+    else { window.scrollTo(0, 0); setTimeout(function () { window.scrollTo(0, 0); }, 0); }
+  }
+  window.addEventListener("hashchange", route);
+  window.addEventListener("load", route);
+  route();
+})();
+</script>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function canvas(id) { var c = document.getElementById(id); if (!c) return null; var o = { c: c, x: c.getContext("2d") };
+    var fit = function () { var d = window.devicePixelRatio || 1, w = c.clientWidth || 1, h = c.clientHeight || 1; if (w === o.w && h === o.h) return; o.w = w; o.h = h; c.width = w * d; c.height = h * d; o.x.setTransform(d, 0, 0, d, 0, 0); };
+    fit(); if (window.ResizeObserver) new ResizeObserver(function () { requestAnimationFrame(fit); }).observe(c); return o; }
+  /* walking: real shares for commuters */
+  var wg = document.getElementById("walkgrid");
+  if (wg) {
+    for (var i = 0; i < 100; i++) wg.appendChild(document.createElement("i"));
+    var cells = wg.children, seed = 5, order = []; for (i = 0; i < 100; i++) order.push(i);
+    order.sort(function () { seed = (seed * 9301 + 49297) % 233280; return seed / 233280 - .5; });
+    var states = [[18, "of commuters walk on a normal day"], [8, "still walk in extreme heat"], [4, "still walk in heavy rain"]], st = 0;
+    var show = function (k) { var n = states[k][0]; order.forEach(function (idx, j) { cells[idx].classList.toggle("on", j < n); });
+      document.getElementById("walk-num").textContent = n + "%"; document.getElementById("walk-txt").textContent = states[k][1];
+      var tw = document.querySelector(".t-weather"); tw.classList.toggle("heat", k === 1); tw.classList.toggle("rain", k === 2); window.__wx = k; };
+    show(0); if (!reduce) setInterval(function () { st = (st + 1) % 3; show(st); }, 3000);
+  }
+  /* congestion: working-day profile from the paper (night hours approximate) and the Eid profile */
+  var sp = document.getElementById("spark");
+  if (sp) {
+    var M = [1.35,1.28,1.24,1.22,1.21,1.25,1.35,1.48,1.60,1.73,1.67,1.72,1.76,1.78,1.74,1.68,1.75,1.86,1.93,1.88,1.76,1.62,1.50,1.42];
+    var drawSpark = function () { var W = Math.max(200, sp.clientWidth), Hs = 104; if (+sp.dataset.w === W) return;
+      sp.setAttribute("viewBox", "0 0 " + W + " 110"); sp.setAttribute("preserveAspectRatio", "xMidYMid meet");
+      var X = function (h) { return h / 23 * W; }, Y = function (v) { return 100 - (v - 1.0) / 1.0 * 100; };
+      var line = M.map(function (v, h) { return (h ? "L" : "M") + X(h).toFixed(1) + " " + Y(v).toFixed(1); }).join(" ");
+      var eid = M.map(function (v, h) { return (h ? "L" : "M") + X(h).toFixed(1) + " " + Y(1 + (v - 1) * .586).toFixed(1); }).join(" ");
+      var keep = sp.querySelectorAll(".cur-line, .cursor"), kept = []; keep.forEach(function (k) { kept.push(k); });
+      sp.innerHTML = '<rect class="band" x="' + X(8) + '" y="0" width="' + (X(21) - X(8)) + '" height="' + Hs + '"/>' +
+        '<path class="area" d="' + line + ' L' + W + ' ' + Hs + ' L0 ' + Hs + ' Z"/><path class="eid" d="' + eid + '"/><path class="line" d="' + line + '"/>' +
+        '<text x="' + (X(8) + 4) + '" y="12">08:00 to 21:00</text><text x="' + (X(18) - 2) + '" y="' + (Y(1.93) - 6) + '" text-anchor="end">peak 18:00</text><text x="4" y="' + (Y(1.2) - 4) + '">Eid</text>';
+      kept.forEach(function (k) { sp.appendChild(k); }); sp.dataset.w = W; };
+    drawSpark(); window.__drawSpark = drawSpark;
+    if (window.ResizeObserver) new ResizeObserver(function () { requestAnimationFrame(drawSpark); }).observe(sp);
+  }
+  /* ride-hailing: origin-destination arcs */
+  var A = canvas("arcs");
+  if (A) {
+    var pts = []; for (var k = 0; k < 14; k++) pts.push([12 + Math.random() * (A.w - 24), 20 + Math.random() * (A.h - 30)]);
+    var trips = [];
+    var drawA = function () { var x = A.x; x.clearRect(0, 0, A.w, A.h);
+      pts.forEach(function (p) { x.fillStyle = "rgba(255,255,255,.45)"; x.beginPath(); x.arc(p[0], p[1], 2.2, 0, 7); x.fill(); });
+      if (Math.random() < .07 || (reduce && trips.length < 8)) { var a = pts[Math.floor(Math.random() * 14)], b = pts[Math.floor(Math.random() * 14)]; if (a !== b) trips.push({ a: a, b: b, t: reduce ? 1 : 0 }); }
+      trips.forEach(function (tr) { var e = Math.min(1, tr.t), mx = (tr.a[0] + tr.b[0]) / 2, my = Math.min(tr.a[1], tr.b[1]) - 34;
+        x.strokeStyle = "rgba(255,143,196," + Math.max(0, 1 - Math.max(0, tr.t - 1)) + ")"; x.lineWidth = 1.6; x.beginPath();
+        for (var i = 0; i <= 20 * e; i++) { var u = i / 20, px = (1 - u) * (1 - u) * tr.a[0] + 2 * (1 - u) * u * mx + u * u * tr.b[0], py = (1 - u) * (1 - u) * tr.a[1] + 2 * (1 - u) * u * my + u * u * tr.b[1]; i ? x.lineTo(px, py) : x.moveTo(px, py); }
+        x.stroke(); if (!reduce) tr.t += .018; });
+      trips = trips.filter(function (t) { return t.t < 2; }); if (!reduce) requestAnimationFrame(drawA); };
+    drawA();
+  }
+  /* traffic operations: one lane, cars bunch and release */
+  var L = canvas("lane");
+  if (L) { var cars = []; for (var c = 0; c < 7; c++) cars.push({ x: c * 46, v: 1 }); var tt = 0;
+    var drawL = function () { var x = L.x; x.clearRect(0, 0, L.w, L.h); x.fillStyle = "rgba(255,255,255,.12)"; x.fillRect(0, 22, L.w, 22);
+      x.strokeStyle = "rgba(255,255,255,.45)"; x.setLineDash([8, 8]); x.beginPath(); x.moveTo(0, 33); x.lineTo(L.w, 33); x.stroke(); x.setLineDash([]);
+      var red = Math.sin(tt / 90) > .3; x.fillStyle = red ? "#ff6b5e" : "#7ee08a"; x.beginPath(); x.arc(L.w * .72, 12, 5, 0, 7); x.fill();
+      cars.sort(function (a, b) { return b.x - a.x; });
+      cars.forEach(function (o, i) { var lead = i ? cars[i - 1].x : 1e9, stopLine = L.w * .72 - 26, gap = lead - o.x - 24, want = 1.6;
+        if (red && o.x < stopLine && o.x > stopLine - 60) want = Math.max(0, (stopLine - o.x) / 30); if (gap < 8) want = 0; else if (gap < 24) want = Math.min(want, gap / 24);
+        o.v += (want - o.v) * .08; if (!reduce) o.x += o.v; if (o.x > L.w + 30) o.x = -30;
+        x.fillStyle = "#ffd166"; x.beginPath(); x.roundRect(o.x, 26, 22, 14, 3); x.fill(); });
+      tt++; if (!reduce) requestAnimationFrame(drawL); };
+    drawL(); }
+  /* beyond transport: 64 hexagons, one per district, in a slowly shifting palette */
+  var H = canvas("hexes");
+  if (H) { var pal = ["#ff6b6b", "#ffd166", "#06d6a0", "#4cc9f0", "#b388ff", "#f78c6b"], hx = [], r = 16;
+    var rows = Math.ceil(H.h / (r * 1.5)) + 1, colsN = Math.ceil(H.w / (r * 1.75)) + 1; for (var row = 0; row < rows; row++) for (var col = 0; col < colsN; col++) { hx.push({ x: col * r * 1.75 + (row % 2) * r * .87, y: row * r * 1.5, c: Math.floor(Math.random() * 6), p: Math.random() * 6 }); }
+    var drawH = function () { var x = H.x; x.clearRect(0, 0, H.w, H.h);
+      hx.forEach(function (h) { var a = .75 + .25 * Math.sin(h.p); x.fillStyle = pal[h.c]; x.globalAlpha = a; x.beginPath();
+        for (var k = 0; k < 6; k++) { var an = Math.PI / 3 * k + Math.PI / 6; x.lineTo(h.x + r * .9 * Math.cos(an), h.y + r * .9 * Math.sin(an)); } x.fill(); if (!reduce) h.p += .012; });
+      x.globalAlpha = 1; if (!reduce) requestAnimationFrame(drawH); };
+    drawH(); }
+})();
+</script>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function canvas(id) { var c = document.getElementById(id); if (!c) return null; var o = { c: c, x: c.getContext("2d") };
+    var fit = function () { var d = window.devicePixelRatio || 1, w = c.clientWidth || 1, h = c.clientHeight || 1; if (w === o.w && h === o.h) return; o.w = w; o.h = h; c.width = w * d; c.height = h * d; o.x.setTransform(d, 0, 0, d, 0, 0); };
+    fit(); if (window.ResizeObserver) new ResizeObserver(function () { requestAnimationFrame(fit); }).observe(c); return o; }
+  /* hero: a night city from above with small, irregular blocks and some curving streets; buildings, parks, ponds, signals and mixed traffic */
+  (function () { var B = canvas("hero-bg");
+  if (B) {
+    var VX, HY, P, blocks, sig, V, f = 0, built = 0, W, H, sd;
+    var rnd = function () { sd = (sd * 9301 + 49297) % 233280; return sd / 233280; };
+    var vx = function (i, y) { var r = VX[i]; return r.x0 + r.sl * y + r.amp * Math.sin(y * r.fr + r.ph); };
+    var hy = function (j, x) { var r = HY[j]; return r.y0 + r.amp * Math.sin(x * r.fr + r.ph); };
+    var TY = [{ c: "232,246,244", s: 1.3, v: [.9, 1.4] }, { c: "242,182,50", s: 2, v: [.5, .75] }, { c: "134,208,122", s: 1.1, v: [.3, .5] }];
+    var build = function () {
+      W = B.w; H = B.h; sd = 23; VX = []; HY = []; P = []; blocks = []; sig = []; V = [];
+      var px = -10; while (px < W + 50) { var cv = rnd() < .35; VX.push({ x0: px, sl: (rnd() - .5) * .12, amp: cv ? 6 + rnd() * 10 : rnd() * 2, fr: .012 + rnd() * .012, ph: rnd() * 6 }); px += 18 + rnd() * 22; }
+      var py = -10; while (py < H + 50) { var ch = rnd() < .4; HY.push({ y0: py, amp: ch ? 6 + rnd() * 10 : 1 + rnd() * 2, fr: .008 + rnd() * .012, ph: rnd() * 6 }); py += 17 + rnd() * 20; }
+      for (var i = 0; i < VX.length; i++) { P[i] = []; sig[i] = []; for (var j = 0; j < HY.length; j++) { var y = HY[j].y0; for (var k = 0; k < 6; k++) y = hy(j, vx(i, y)); P[i][j] = [vx(i, y), y]; sig[i][j] = { ph: rnd() * 600, len: 200 + rnd() * 200 }; } }
+      for (i = 0; i < VX.length - 1; i++) for (j = 0; j < HY.length - 1; j++) {
+        var q = [P[i][j], P[i + 1][j], P[i + 1][j + 1], P[i][j + 1]], r = rnd(), kind = r < .09 ? "park" : r < .12 ? "water" : "built", bl = { q: q, kind: kind, b: [], trees: [] };
+        var cx = (q[0][0] + q[1][0] + q[2][0] + q[3][0]) / 4, cy = (q[0][1] + q[1][1] + q[2][1] + q[3][1]) / 4, bw = Math.max(3, Math.abs(q[1][0] - q[0][0]) - 6), bh = Math.max(3, Math.abs(q[3][1] - q[0][1]) - 6);
+        if (kind === "built") { var n = 1 + Math.floor(rnd() * 3); for (k = 0; k < n; k++) { var w = 3 + rnd() * Math.max(3, bw * .5), h = 3 + rnd() * Math.max(3, bh * .5); bl.b.push({ x: cx + (rnd() - .5) * Math.max(0, bw - w), y: cy + (rnd() - .5) * Math.max(0, bh - h), w: w, h: h, a: (rnd() - .5) * .3, lit: rnd() < .5, t: rnd() * 500, tall: rnd() < .25 }); } if (rnd() < .3) bl.trees.push([cx + (rnd() - .5) * bw, cy + (rnd() - .5) * bh]); }
+        if (kind === "park") for (k = 0; k < 5; k++) bl.trees.push([cx + (rnd() - .5) * bw * .85, cy + (rnd() - .5) * bh * .85]);
+        blocks.push(bl);
+      }
+      var nv = Math.round(W * H / 2300);
+      for (k = 0; k < nv; k++) { var rr = Math.random(), t = rr < .62 ? TY[0] : rr < .75 ? TY[1] : TY[2], hz = Math.random() < .5;
+        V.push({ t: t, hz: hz, ln: Math.floor(Math.random() * (hz ? HY.length : VX.length)), dir: Math.random() < .5 ? 1 : -1, p: Math.random() * (hz ? W : H), vm: t.v[0] + Math.random() * (t.v[1] - t.v[0]), v: 0, last: -1 }); }
+      built = W;
+    };
+    var green = function (i, j, hz) { var s = sig[i][j], m = (f + s.ph) % (s.len * 2); return hz ? m < s.len : m >= s.len; };
+    var nearest = function (v) { var best = -1, bd = 1e9, i, dd; if (v.hz) { for (i = 0; i < VX.length; i++) { dd = (P[i][v.ln][0] - v.p) * v.dir; if (dd > -1 && dd < bd) { bd = dd; best = i; } } } else { for (i = 0; i < HY.length; i++) { dd = (P[v.ln][i][1] - v.p) * v.dir; if (dd > -1 && dd < bd) { bd = dd; best = i; } } } return [best, bd]; };
+    var drawB = function () {
+      if (!V || Math.abs(built - B.w) > 120 || Math.abs(H - B.h) > 120) build();
+      var x = B.x;
+      x.fillStyle = "#08191c"; x.fillRect(0, 0, W, H);
+      blocks.forEach(function (bl) { var q = bl.q, cx = (q[0][0] + q[2][0]) / 2, cy = (q[0][1] + q[2][1]) / 2, ins = q.map(function (p) { return [p[0] + (cx - p[0]) * .16, p[1] + (cy - p[1]) * .18]; });
+        x.beginPath(); x.moveTo(ins[0][0], ins[0][1]); for (var k = 1; k < 4; k++) x.lineTo(ins[k][0], ins[k][1]); x.closePath();
+        x.fillStyle = bl.kind === "park" ? "rgba(40,95,55,.6)" : bl.kind === "water" ? "rgba(30,90,130,.6)" : "rgba(20,44,47,.8)"; x.fill();
+        bl.b.forEach(function (b) { x.save(); x.translate(b.x, b.y); x.rotate(b.a); x.fillStyle = b.tall ? "rgba(52,92,96,.95)" : "rgba(36,70,74,.95)"; x.fillRect(-b.w / 2, -b.h / 2, b.w, b.h);
+          if (!reduce && --b.t < 0) { b.lit = !b.lit; b.t = 150 + Math.random() * 500; } if (b.lit) { x.fillStyle = "rgba(255,214,140,.7)"; x.fillRect(-b.w / 2 + 1, -b.h / 2 + 1, 1.5, 1.5); } x.restore(); });
+        bl.trees.forEach(function (t) { x.fillStyle = "rgba(98,170,100,.8)"; x.beginPath(); x.arc(t[0], t[1], 1.9, 0, 6.283); x.fill(); });
+        if (bl.kind === "water") { x.strokeStyle = "rgba(140,200,240," + (.15 + .1 * Math.sin(f * .03)).toFixed(3) + ")"; x.beginPath(); x.moveTo(cx - 5, cy); x.quadraticCurveTo(cx, cy - 2, cx + 5, cy); x.stroke(); } });
+      x.strokeStyle = "rgba(140,235,226,.06)"; x.lineWidth = 1;
+      VX.forEach(function (r, i) { x.beginPath(); for (var yy = 0; yy <= H; yy += 6) { var xx = vx(i, yy); yy ? x.lineTo(xx, yy) : x.moveTo(xx, yy); } x.stroke(); });
+      HY.forEach(function (r, j) { x.beginPath(); for (var xx = 0; xx <= W; xx += 6) { var yy = hy(j, xx); xx ? x.lineTo(xx, yy) : x.moveTo(xx, yy); } x.stroke(); });
+      for (var i = 0; i < VX.length; i++) for (var j = 0; j < HY.length; j++) { var p = P[i][j]; if (p[0] < 0 || p[0] > W || p[1] < 0 || p[1] > H) continue; x.fillStyle = green(i, j, true) ? "rgba(126,224,138,.5)" : "rgba(255,90,70,.5)"; x.fillRect(p[0] - .8, p[1] - .8, 1.6, 1.6); }
+      var lanes = {}; V.forEach(function (v) { var k = (v.hz ? "h" : "v") + v.ln + "_" + v.dir; (lanes[k] = lanes[k] || []).push(v); });
+      Object.keys(lanes).forEach(function (k) { lanes[k].sort(function (a, b) { return (b.p - a.p) * b.dir; }); });
+      V.forEach(function (v) { var nb = nearest(v), ni = nb[0], dd = nb[1], want = v.vm;
+        if (ni >= 0 && dd > 0 && dd < 7) { var gi = v.hz ? ni : v.ln, gj = v.hz ? v.ln : ni; if (!green(gi, gj, v.hz)) want = dd < 3 ? 0 : v.vm * .25; }
+        var L = lanes[(v.hz ? "h" : "v") + v.ln + "_" + v.dir], me = L.indexOf(v);
+        if (me > 0) { var g = (L[me - 1].p - v.p) * v.dir; if (g > 0 && g < 5) want = 0; else if (g > 0 && g < 10) want = Math.min(want, v.vm * (g - 5) / 5); }
+        v.v += (want - v.v) * .12; if (!reduce) v.p += v.v * v.dir;
+        if (ni >= 0 && Math.abs(dd) < .8 && v.last !== ni && v.v > .25) { v.last = ni; if (Math.random() < .25) { var pt = v.hz ? P[ni][v.ln] : P[v.ln][ni], old = v.ln; v.hz = !v.hz; v.ln = ni; v.p = v.hz ? pt[0] : pt[1]; v.dir = Math.random() < .5 ? 1 : -1; v.last = old; } }
+        var Lm = v.hz ? W : H; if (v.p > Lm + 10) { v.p = -10; v.last = -1; } if (v.p < -10) { v.p = Lm + 10; v.last = -1; }
+        var o = v.dir > 0 ? 2.2 : -2.2, X, Y; if (v.hz) { X = v.p; Y = hy(v.ln, X) + o; } else { Y = v.p; X = vx(v.ln, Y) - o; }
+        x.fillStyle = "rgba(" + v.t.c + ",.95)"; x.beginPath(); x.arc(X, Y, v.t.s, 0, 6.283); x.fill(); });
+      f++; if (!reduce) requestAnimationFrame(drawB);
+    };
+    drawB();
+  } })();
+  /* weather tile: heat shimmer or rain behind the content */
+  var X = canvas("wx");
+  if (X) { var drops = []; for (var j = 0; j < 70; j++) drops.push({ x: Math.random() * X.w, y: Math.random() * X.h, v: 4 + Math.random() * 3 }); var ph = 0;
+    var drawX = function () { var x = X.x, k = window.__wx || 0; x.clearRect(0, 0, X.w, X.h);
+      if (k === 1) { for (var b = 0; b < 3; b++) { var gy = X.h * (.25 + b * .25) + Math.sin(ph + b) * 8, g = x.createRadialGradient(X.w * .8, gy, 0, X.w * .8, gy, 120); g.addColorStop(0, "rgba(255,140,60,.28)"); g.addColorStop(1, "rgba(255,140,60,0)"); x.fillStyle = g; x.fillRect(0, 0, X.w, X.h); } }
+      if (k === 2) { x.strokeStyle = "rgba(160,210,255,.4)"; x.lineWidth = 1; drops.forEach(function (d) { x.beginPath(); x.moveTo(d.x, d.y); x.lineTo(d.x - 2, d.y + 9); x.stroke(); if (!reduce) { d.y += d.v; if (d.y > X.h) { d.y = -10; d.x = Math.random() * X.w; } } }); }
+      ph += .03; if (!reduce) requestAnimationFrame(drawX); };
+    drawX(); }
+  /* congestion tile: a cursor walks through the day and reads the curve */
+  var sp = document.getElementById("spark"), rd = document.getElementById("cong-read");
+  if (sp && rd) { var M = [1.35,1.28,1.24,1.22,1.21,1.25,1.35,1.48,1.60,1.73,1.67,1.72,1.76,1.78,1.74,1.68,1.75,1.86,1.93,1.88,1.76,1.62,1.50,1.42];
+    var NS = "http://www.w3.org/2000/svg", ln = document.createElementNS(NS, "line"), dot = document.createElementNS(NS, "circle");
+    ln.setAttribute("class", "cur-line"); ln.setAttribute("y1", 0); ln.setAttribute("y2", 104); dot.setAttribute("class", "cursor"); dot.setAttribute("r", 3.5);
+    sp.appendChild(ln); sp.appendChild(dot); var h = 6;
+    var step = function () { var xx = h / 23 * (+sp.dataset.w || 400), yy = 100 - (M[h] - 1) * 100; ln.setAttribute("x1", xx); ln.setAttribute("x2", xx); dot.setAttribute("cx", xx); dot.setAttribute("cy", yy);
+      rd.textContent = (h < 10 ? "0" : "") + h + ":00 · congestion index " + M[h].toFixed(2) + (h === 18 ? " · daily peak" : "") + (h < 8 || h > 21 ? " (approx.)" : ""); h = (h + 1) % 24; };
+    step(); if (!reduce) setInterval(step, 900); }
+  /* active tile: people crossing a zebra crossing */
+  var P = canvas("peds");
+  if (P) { var cols = ["#a8e6a1", "#ffd166", "#ffffff", "#7fd3ff"], ppl = []; for (var q = 0; q < 9; q++) ppl.push({ x: P.w * .2 + Math.random() * P.w * .6, y: Math.random() * P.h, d: Math.random() < .5 ? 1 : -1, v: .25 + Math.random() * .35, c: cols[q % 4] });
+    var drawP = function () { var x = P.x; x.clearRect(0, 0, P.w, P.h); x.fillStyle = "rgba(255,255,255,.18)"; for (var z = 0; z < 7; z++) x.fillRect(0, 6 + z * 8, P.w, 4);
+      ppl.forEach(function (p) { x.fillStyle = p.c; x.beginPath(); x.arc(p.x, p.y, 3.4, 0, 7); x.fill(); if (!reduce) { p.x += p.v * p.d; if (p.x > P.w - 6 || p.x < 6) p.d *= -1; } });
+      if (!reduce) requestAnimationFrame(drawP); };
+    drawP(); }
+})();
+</script>
+<script>
+(function () { var b = document.getElementById("menu-btn"), n = document.getElementById("site-nav"); if (!b || !n) return;
+  b.addEventListener("click", function () { var o = n.classList.toggle("open"); b.setAttribute("aria-expanded", String(o)); b.setAttribute("aria-label", o ? "Close menu" : "Open menu"); });
+  n.addEventListener("click", function (e) { if (e.target.tagName === "A") { n.classList.remove("open"); b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-label", "Open menu"); } });
+})();
+</script>
+<script>
+(function () {
+  var c = document.getElementById("walkers"); if (!c) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var x = c.getContext("2d"), W = 0, H = 0;
+  var fit = function () { var d = window.devicePixelRatio || 1, w = c.clientWidth || 1, h = c.clientHeight || 1; if (w === W && h === H) return; W = w; H = h; c.width = w * d; c.height = h * d; x.setTransform(d, 0, 0, d, 0, 0); };
+  fit(); if (window.ResizeObserver) new ResizeObserver(function () { requestAnimationFrame(fit); }).observe(c);
+  var people = [{ p: .05, v: .0016, dir: 1, kind: "walk", c: "#ffffff" }, { p: .45, v: .0012, dir: -1, kind: "walk", c: "#a8e6a1" }, { p: .75, v: .0018, dir: 1, kind: "walk", c: "#ffd166" },
+                { p: .25, v: .0028, dir: -1, kind: "cycle", c: "#7fd3ff" }, { p: .6, v: .002, dir: 1, kind: "rickshaw", c: "#ffd166" }];
+  var t = 0;
+  function walker(px, base, col, ph, dir) { var s = Math.sin(ph) * 4; x.strokeStyle = col; x.fillStyle = col; x.lineWidth = 1.8; x.lineCap = "round";
+    x.beginPath(); x.arc(px, base - 21, 3, 0, 6.283); x.fill();
+    x.beginPath(); x.moveTo(px, base - 17); x.lineTo(px, base - 8); x.stroke();
+    x.beginPath(); x.moveTo(px, base - 8); x.lineTo(px + s, base); x.moveTo(px, base - 8); x.lineTo(px - s, base); x.stroke();
+    x.beginPath(); x.moveTo(px, base - 15); x.lineTo(px - s * .8, base - 10); x.moveTo(px, base - 15); x.lineTo(px + s * .8, base - 10); x.stroke(); }
+  function wheel(cx, cy, r, col, ph) { x.strokeStyle = col; x.lineWidth = 1.4; x.beginPath(); x.arc(cx, cy, r, 0, 6.283); x.stroke(); x.beginPath(); x.moveTo(cx + Math.cos(ph) * r, cy + Math.sin(ph) * r); x.lineTo(cx - Math.cos(ph) * r, cy - Math.sin(ph) * r); x.stroke(); }
+  function cyclist(px, base, col, ph, dir) { wheel(px - 7, base - 5, 5, col, ph); wheel(px + 7, base - 5, 5, col, ph);
+    x.strokeStyle = col; x.lineWidth = 1.6; x.beginPath(); x.moveTo(px - 7, base - 5); x.lineTo(px, base - 12); x.lineTo(px + 7, base - 5); x.moveTo(px, base - 12); x.lineTo(px + 2 * dir, base - 20); x.stroke();
+    x.fillStyle = col; x.beginPath(); x.arc(px + 2 * dir, base - 23, 2.6, 0, 6.283); x.fill(); }
+  function rickshaw(px, base, col, ph, dir) { wheel(px - 8 * dir, base - 6, 6, col, ph); wheel(px + 10 * dir, base - 6, 6, col, ph);
+    x.strokeStyle = col; x.lineWidth = 1.6; x.beginPath(); x.moveTo(px - 8 * dir, base - 6); x.lineTo(px + 10 * dir, base - 6); x.stroke();
+    x.beginPath(); x.moveTo(px - 13 * dir, base - 22); x.quadraticCurveTo(px - 4 * dir, base - 30, px + 4 * dir, base - 20); x.stroke();
+    x.beginPath(); x.moveTo(px - 13 * dir, base - 22); x.lineTo(px - 10 * dir, base - 8); x.stroke();
+    x.fillStyle = col; x.beginPath(); x.arc(px + 12 * dir, base - 22, 2.6, 0, 6.283); x.fill(); }
+  function draw() {
+    x.clearRect(0, 0, W, H); var base = H - 6;
+    x.fillStyle = "rgba(255,255,255,.14)"; for (var z = W * .38; z < W * .62; z += 9) x.fillRect(z, base + 1, 5, 4);
+    x.fillStyle = "rgba(255,255,255,.08)"; x.fillRect(0, base + 1, W * .38, 2); x.fillRect(W * .62, base + 1, W, 2);
+    people.forEach(function (o) { var px = o.p * W, ph = t * (o.kind === "walk" ? .18 : .12);
+      if (o.kind === "walk") walker(px, base, o.c, ph + o.p * 10, o.dir); else if (o.kind === "cycle") cyclist(px, base, o.c, ph, o.dir); else rickshaw(px, base, o.c, ph, o.dir);
+      if (!reduce) { o.p += o.v * o.dir; if (o.p > 1.08) o.p = -.08; if (o.p < -.08) o.p = 1.08; } });
+    t++; if (!reduce) requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

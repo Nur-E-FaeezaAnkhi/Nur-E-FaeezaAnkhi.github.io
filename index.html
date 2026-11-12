@@ -594,6 +594,30 @@ body { line-height: 1.38 !important; }
   .contact-list li { grid-template-columns: 1fr; gap: 2px; }
 }
 
+
+/* Undergraduate projects: soft purple band, compact single column */
+.started { --ws-bg: #f1edf9; position: relative; margin: 12px 0 0; padding: 28px 0 30px; background: var(--ws-bg); box-shadow: 0 0 0 100vmax var(--ws-bg); clip-path: inset(0 -100vmax); }
+:root[data-theme="dark"] .started { --ws-bg: #1d1928; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .started { --ws-bg: #1d1928; } }
+.started h3 { font-size: 28px; line-height: 1.1; margin: 0; }
+.started-intro { margin: 2px 0 8px !important; line-height: 1.3; color: var(--muted); }
+.w { list-style: none; margin: 0; padding: 0; }
+.w li { display: grid; grid-template-columns: 78px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 5px 0; border-bottom: 1px solid rgba(110,80,160,.18); }
+.w-d { font-family: var(--label); font-size: 12.5px; font-weight: 600; color: #6c4fa3; font-variant-numeric: tabular-nums; }
+.w-t { font-family: var(--display); font-size: 16.5px; line-height: 1.2; }
+.w-o { justify-self: end; white-space: nowrap; font-family: var(--label); font-size: 12px; font-weight: 600; text-decoration: none; padding: 3px 10px; border-radius: 999px; }
+.w-o.w-pub { background: var(--signal); color: #1b1606; }
+.w-o.w-conf { background: #e2d9f3; color: #4b2f80; }
+.w-o.w-rev { background: var(--paper); border: 1px solid #c9bce3; color: #5a4a78; }
+.w-o.w-sub { background: var(--paper); border: 1px dashed #b3a3d3; color: #5a4a78; }
+.w-more { margin: 14px 0 0; font-size: 15px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.w-more strong { color: var(--ink); margin-right: 2px; }
+.w-more span { padding: 2px 10px; border-radius: 999px; background: rgba(255,255,255,.7); border: 1px solid rgba(110,80,160,.18); font-size: 14px; }
+@media (max-width: 760px) { .w li { grid-template-columns: 1fr; gap: 3px; } .w-o { justify-self: start; white-space: normal; } }
+
+.walkers { width: 100%; height: 58px; margin-top: auto; display: block; }
+.t-active .dims { margin-top: 8px !important; }
+
 footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
@@ -651,7 +675,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <a class="chip primary" href="https://scholar.google.com/citations?hl=en&amp;user=aJN5WjUAAAAJ">Google Scholar</a>
           <a class="chip primary" href="https://www.researchgate.net/profile/Nur-E-Faeeza-Ankhi">ResearchGate</a>
           <a class="chip primary" href="https://www.linkedin.com/in/nur-e-faeeza-ankhi-463307325/">LinkedIn</a>
-          <a class="chip primary" href="#contact">Stay connected</a>
+          <a class="chip primary" href="#contact">Contact</a>
         </div>
       </div>
     </div>
@@ -662,7 +686,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 <div class="stats-wrap" data-view="home">
   <div class="wrap">
     <dl class="stats">
-      <div><dt>15</dt><dd>journal papers in total: published, under review, submitted and in preparation</dd></div>
+      <div><dt>16</dt><dd>journal papers: 4 published, 5 under review, 4 submitted and 3 in preparation</dd></div>
       <div><dt>4</dt><dd>conference papers, 2 at the TRB Annual Meeting and 2 at ICIURP</dd></div>
       <div><dt>11</dt><dd>citations on Google Scholar</dd></div>
       <div><dt>3.98</dt><dd>BURP CGPA out of 4.00, 1st in Department and Faculty</dd></div>
@@ -728,8 +752,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <span class="t-f">VISSIM &middot; school traffic study</span>
       </a>
       <a class="tile t-active" href="#active">
-        <span class="t-k">Active transportation</span>
-        <span class="t-q">What makes walking and cycling feel safe?</span>
+        <span class="t-k">Active and non-motorised transport</span>
+        <span class="t-q">How well do streets serve people who walk, cycle or ride rickshaws?</span>
+        <canvas class="walkers" id="walkers" aria-hidden="true"></canvas>
         <div class="dims"><i>Comfort</i><i>Urban services</i><i>Safety</i><i>Parking</i></div>
       </a>
       <a class="tile t-beyond" href="#regional">
@@ -853,7 +878,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           </dl>
         </div>
       </div>
-      <p class="also">In preparation: <em>Where do jams start? Congestion propagation across Dhaka's road network</em> and <em>Jams start with demand but end alike: Onset and duration of congestion in Dhaka</em>.</p>
+      <p class="also">In preparation: <em>Jams start with demand but end alike: Onset and duration of congestion in Dhaka</em>, and a paper on road crashes and safety in Dhaka.</p>
     </article>
 
     <article class="project" id="ride-hailing" style="--n:3">
@@ -908,8 +933,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           </dl>
         </div>
         <div class="paper">
-          <span class="st ong">Ongoing</span>
-          <h4>Pedestrians and the built environment in Dhaka</h4>
+          <span class="st ong">In preparation</span>
+          <h4>Walkability and the built environment in Dhaka</h4>
           <dl>
             <dt>Research question</dt><dd>How does the built environment shape pedestrian experience and behaviour?</dd>
           </dl>
@@ -1008,6 +1033,28 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </div>
       </div>
     </article>
+      <section class="started" aria-labelledby="started-title">
+      <h3 id="started-title">Where it started: undergraduate projects</h3>
+      <p class="started-intro">16 projects during my BURP at BUET; 10 of them grew into papers.</p>
+      <ol class="w">
+        <li><span class="w-d">2023&ndash;24</span><span class="w-t">Undergraduate thesis: travel of commuters and non-commuters in extreme weather</span><a class="w-o w-pub" href="#weather">2 published &middot; 1 conference &middot; 2 under review</a></li>
+        <li><span class="w-d">2023&ndash;24</span><span class="w-t">Informal markets and the role of stakeholders</span><a class="w-o w-pub" href="#informal">Published</a></li>
+        <li><span class="w-d">2022</span><span class="w-t">Industry locations in Narayanganj City Corporation</span><a class="w-o w-pub" href="#informal">Published</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Regionalisation by Human Development Index</span><a class="w-o w-conf" href="#regional">Conference</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Functional regions vs administrative areas</span><a class="w-o w-conf" href="#regional">Conference</a></li>
+        <li><span class="w-d">2022&ndash;23</span><span class="w-t">Rural livelihood strategies in Bangladesh</span><a class="w-o w-rev" href="#regional">Under review</a></li>
+        <li><span class="w-d">2022</span><span class="w-t">Slum improvement in DAP low-income settlements</span><a class="w-o w-rev" href="#informal">Under review</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Traffic impact around Viqarunnisa Noon School</span><a class="w-o w-sub" href="#congestion">Submitted</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Long-run economic growth in Barishal districts</span><a class="w-o w-sub" href="#regional">Submitted</a></li>
+        <li><span class="w-d">2023</span><span class="w-t">Spatial concentration of public facilities</span><a class="w-o w-sub" href="#regional">Submitted</a></li>
+        <li><span class="w-d">2022</span><span class="w-t">Autonomous vehicle perceptions</span><span></span></li>
+        <li><span class="w-d">2023</span><span class="w-t">Highway congestion during festivals</span><span></span></li>
+        <li><span class="w-d">2023</span><span class="w-t">Accessibility audit at BUET</span><span></span></li>
+        <li><span class="w-d">2022</span><span class="w-t">Agargaon MRT station area</span><span></span></li>
+        <li><span class="w-d">2021&ndash;22</span><span class="w-t">Student activity during COVID-19</span><span></span></li>
+        <li><span class="w-d">2021&ndash;22</span><span class="w-t">Landscape plan for Thanchi</span><span></span></li>
+      </ol>
+    </section>
   </section>
 
     <section class="block" id="publications" data-view="publications">
@@ -1153,13 +1200,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <article class="pub">
           <div class="yr"></div>
           <div>
-            <p class="t">Where do jams start? Congestion propagation across Dhaka's road network</p>
-            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
-          </div>
-        </article>
-        <article class="pub">
-          <div class="yr"></div>
-          <div>
             <p class="t">Jams start with demand but end alike: Onset and duration of congestion in Dhaka</p>
             <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
           </div>
@@ -1167,15 +1207,22 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <article class="pub">
           <div class="yr"></div>
           <div>
-            <p class="t">A multiscale analysis of ride-hailing trip characteristics, demand, accessibility, and natural and built-environment features in Dhaka</p>
-            <p class="meta">MURP thesis, ongoing <a class="proj-link" href="#ride-hailing">Project 3: Ride-hailing &rarr;</a></p>
+            <p class="t">Road crashes and safety in Dhaka (working title)</p>
+            <p class="meta">In preparation <a class="proj-link" href="#congestion">Project 2: Congestion &rarr;</a></p>
           </div>
         </article>
         <article class="pub">
           <div class="yr"></div>
           <div>
-            <p class="t">Pedestrians and the built environment in Dhaka</p>
-            <p class="meta">Ongoing study <a class="proj-link" href="#active">Project 4: Active transport &rarr;</a></p>
+            <p class="t">Walkability and the built environment in Dhaka (working title)</p>
+            <p class="meta">In preparation <a class="proj-link" href="#active">Project 4: Active transport &rarr;</a></p>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="yr"></div>
+          <div>
+            <p class="t">A multiscale analysis of ride-hailing trip characteristics, demand, accessibility, and natural and built-environment features in Dhaka</p>
+            <p class="meta">MURP thesis, ongoing <a class="proj-link" href="#ride-hailing">Project 3: Ride-hailing &rarr;</a></p>
           </div>
         </article>
       </div>
@@ -1454,6 +1501,42 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 (function () { var b = document.getElementById("menu-btn"), n = document.getElementById("site-nav"); if (!b || !n) return;
   b.addEventListener("click", function () { var o = n.classList.toggle("open"); b.setAttribute("aria-expanded", String(o)); b.setAttribute("aria-label", o ? "Close menu" : "Open menu"); });
   n.addEventListener("click", function (e) { if (e.target.tagName === "A") { n.classList.remove("open"); b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-label", "Open menu"); } });
+})();
+</script>
+<script>
+(function () {
+  var c = document.getElementById("walkers"); if (!c) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var x = c.getContext("2d"), W = 0, H = 0;
+  var fit = function () { var d = window.devicePixelRatio || 1, w = c.clientWidth || 1, h = c.clientHeight || 1; if (w === W && h === H) return; W = w; H = h; c.width = w * d; c.height = h * d; x.setTransform(d, 0, 0, d, 0, 0); };
+  fit(); if (window.ResizeObserver) new ResizeObserver(function () { requestAnimationFrame(fit); }).observe(c);
+  var people = [{ p: .05, v: .0016, dir: 1, kind: "walk", c: "#ffffff" }, { p: .45, v: .0012, dir: -1, kind: "walk", c: "#a8e6a1" }, { p: .75, v: .0018, dir: 1, kind: "walk", c: "#ffd166" },
+                { p: .25, v: .0028, dir: -1, kind: "cycle", c: "#7fd3ff" }, { p: .6, v: .002, dir: 1, kind: "rickshaw", c: "#ffd166" }];
+  var t = 0;
+  function walker(px, base, col, ph, dir) { var s = Math.sin(ph) * 4; x.strokeStyle = col; x.fillStyle = col; x.lineWidth = 1.8; x.lineCap = "round";
+    x.beginPath(); x.arc(px, base - 21, 3, 0, 6.283); x.fill();
+    x.beginPath(); x.moveTo(px, base - 17); x.lineTo(px, base - 8); x.stroke();
+    x.beginPath(); x.moveTo(px, base - 8); x.lineTo(px + s, base); x.moveTo(px, base - 8); x.lineTo(px - s, base); x.stroke();
+    x.beginPath(); x.moveTo(px, base - 15); x.lineTo(px - s * .8, base - 10); x.moveTo(px, base - 15); x.lineTo(px + s * .8, base - 10); x.stroke(); }
+  function wheel(cx, cy, r, col, ph) { x.strokeStyle = col; x.lineWidth = 1.4; x.beginPath(); x.arc(cx, cy, r, 0, 6.283); x.stroke(); x.beginPath(); x.moveTo(cx + Math.cos(ph) * r, cy + Math.sin(ph) * r); x.lineTo(cx - Math.cos(ph) * r, cy - Math.sin(ph) * r); x.stroke(); }
+  function cyclist(px, base, col, ph, dir) { wheel(px - 7, base - 5, 5, col, ph); wheel(px + 7, base - 5, 5, col, ph);
+    x.strokeStyle = col; x.lineWidth = 1.6; x.beginPath(); x.moveTo(px - 7, base - 5); x.lineTo(px, base - 12); x.lineTo(px + 7, base - 5); x.moveTo(px, base - 12); x.lineTo(px + 2 * dir, base - 20); x.stroke();
+    x.fillStyle = col; x.beginPath(); x.arc(px + 2 * dir, base - 23, 2.6, 0, 6.283); x.fill(); }
+  function rickshaw(px, base, col, ph, dir) { wheel(px - 8 * dir, base - 6, 6, col, ph); wheel(px + 10 * dir, base - 6, 6, col, ph);
+    x.strokeStyle = col; x.lineWidth = 1.6; x.beginPath(); x.moveTo(px - 8 * dir, base - 6); x.lineTo(px + 10 * dir, base - 6); x.stroke();
+    x.beginPath(); x.moveTo(px - 13 * dir, base - 22); x.quadraticCurveTo(px - 4 * dir, base - 30, px + 4 * dir, base - 20); x.stroke();
+    x.beginPath(); x.moveTo(px - 13 * dir, base - 22); x.lineTo(px - 10 * dir, base - 8); x.stroke();
+    x.fillStyle = col; x.beginPath(); x.arc(px + 12 * dir, base - 22, 2.6, 0, 6.283); x.fill(); }
+  function draw() {
+    x.clearRect(0, 0, W, H); var base = H - 6;
+    x.fillStyle = "rgba(255,255,255,.14)"; for (var z = W * .38; z < W * .62; z += 9) x.fillRect(z, base + 1, 5, 4);
+    x.fillStyle = "rgba(255,255,255,.08)"; x.fillRect(0, base + 1, W * .38, 2); x.fillRect(W * .62, base + 1, W, 2);
+    people.forEach(function (o) { var px = o.p * W, ph = t * (o.kind === "walk" ? .18 : .12);
+      if (o.kind === "walk") walker(px, base, o.c, ph + o.p * 10, o.dir); else if (o.kind === "cycle") cyclist(px, base, o.c, ph, o.dir); else rickshaw(px, base, o.c, ph, o.dir);
+      if (!reduce) { o.p += o.v * o.dir; if (o.p > 1.08) o.p = -.08; if (o.p < -.08) o.p = 1.08; } });
+    t++; if (!reduce) requestAnimationFrame(draw);
+  }
+  draw();
 })();
 </script>
 </body>
